@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.LabelRsltMapper">
+    <insert id="insertLabelRslt">
+        INSERT INTO t_ails_label_rslt (
+            work_date
+            , work_no
+            , label_type
+            , label_data_text
+            , class_1
+            , class_1_crdnt
+            , class_2
+            , class_2_crdnt
+            , class_3
+            , class_3_crdnt
+            , class_4
+            , class_4_crdnt
+            , class_5
+            , class_5_crdnt
+            , class_6
+            , class_6_crdnt
+            , class_7
+            , class_7_crdnt
+            , class_8
+            , class_8_crdnt
+            , class_9
+            , class_9_crdnt
+            , class_10
+            , class_10_crdnt
+            , class_11
+            , class_11_crdnt
+            , class_12
+            , class_12_crdnt
+            , class_13
+            , class_13_crdnt
+            , class_14
+            , class_14_crdnt
+            , class_15
+            , class_15_crdnt
+            , class_16
+            , class_16_crdnt
+            , class_17
+            , class_17_crdnt
+            , class_18
+            , class_18_crdnt
+            , class_19
+            , class_19_crdnt
+            , class_20
+            , class_20_crdnt
+            , unit_dtst_incl_yn
+            , unit_dtst_incl_dttm
+            , unit_dtst_id
+            , dtrm_yn
+            , dtrm_dttm
+            , label_json
+        )
+        SELECT
+            #{workDate} AS work_date
+             , #{workNo} AS work_no
+             , #{labelType} AS label_type
+             , #{labelDataText} AS label_data_text
+             , #{class1} AS class_1
+             , #{class1Crdnt} AS class_1_crdnt
+             , #{class2} AS class_2
+             , #{class2Crdnt} AS class_2_crdnt
+             , #{class3} AS class_3
+             , #{class3Crdnt} AS class_3_crdnt
+             , #{class4} AS class_4
+             , #{class4Crdnt} AS class_4_crdnt
+             , #{class5} AS class_5
+             , #{class5Crdnt} AS class_5_crdnt
+             , #{class6} AS class_6
+             , #{class6Crdnt} AS  class_6_crdnt
+             , #{class7} AS class_7
+             , #{class7Crdnt} AS class_7_crdnt
+             , #{class8} AS class_8
+             , #{class8Crdnt} AS class_8_crdnt
+             , #{class9} AS class_9
+             , #{class9Crdnt} AS class_9_crdnt
+             , #{class10} AS class_10
+             , #{class10Crdnt} AS class_10_crdnt
+             , #{class11} AS class_11
+             , #{class11Crdnt} AS class_11_crdnt
+             , #{class12} AS class_12
+             , #{class12Crdnt} AS class_12_crdnt
+             , #{class13} AS class_13
+             , #{class13Crdnt} AS class_13_crdnt
+             , #{class14} AS class_14
+             , #{class14Crdnt} AS class_14_crdnt
+             , #{class15} AS class_15
+             , #{class15Crdnt} AS class_15_crdnt
+             , #{class16} AS class_16
+             , #{class16Crdnt} AS class_16_crdnt
+             , #{class17} AS class_17
+             , #{class17Crdnt} AS class_17_crdnt
+             , #{class18} AS class_18
+             , #{class18Crdnt} AS class_18_crdnt
+             , #{class19} AS class_19
+             , #{class19Crdnt} AS class_19_crdnt
+             , #{class20} AS class_20
+             , #{class20Crdnt} AS class_20_crdnt
+             , null AS unit_dtst_incl_yn
+             , null AS unit_dtst_incl_dttm
+             , null AS unit_dtst_id
+             , 'Y' AS dtrm_yn
+             , now() AS dtrm_dttm
+             , #{labelJson} label_json
+    </insert>
+    <update id="updateLabelRslt">
+       UPDATE  t_ails_label_rslt SET
+               label_data_text = #{labelDataText}
+               , class_1 = #{class1}
+               , class_1_crdnt = #{class1Crdnt}
+               , class_2 = #{class2 }
+               , class_2_crdnt = #{class2Crdnt}
+               , class_3 = #{class3 }
+               , class_3_crdnt = #{class3Crdnt}
+               , class_4 = #{class4}
+               , class_4_crdnt = #{class4Crdnt}
+               , class_5 = #{class5}
+               , class_5_crdnt = #{class5Crdnt}
+               , class_6 = #{class6}
+               , class_6_crdnt = #{class6Crdnt}
+               , class_7 = #{class7}
+               , class_7_crdnt = #{class7Crdnt}
+               , class_8 = #{class8}
+               , class_8_crdnt = #{class8Crdnt}
+               , class_9 = #{class9 }
+               , class_9_crdnt = #{class9Crdnt}
+               , class_10 = #{class10}
+               , class_10_crdnt = #{class10Crdnt}
+               , class_11 = #{class11 }
+               , class_11_crdnt = #{class11Crdnt}
+               , class_12 = #{class12}
+               , class_12_crdnt = #{class12Crdnt}
+               , class_13 = #{class13}
+               , class_13_crdnt = #{class13Crdnt}
+               , class_14 = #{class14}
+               , class_14_crdnt = #{class14Crdnt}
+               , class_15 = #{class15}
+               , class_15_crdnt = #{class15Crdnt}
+               , class_16 = #{class16}
+               , class_16_crdnt = #{class16Crdnt}
+               , class_17 = #{class17}
+               , class_17_crdnt = #{class17Crdnt}
+               , class_18 = #{class18}
+               , class_18_crdnt = #{class18Crdnt}
+               , class_19 = #{class19}
+               , class_19_crdnt = #{class19Crdnt}
+               , class_20 = #{class20}
+               , class_20_crdnt = #{class20Crdnt}
+               , label_json = #{labelJson}
+               , dtrm_yn = #{dtrmYn}
+               , dtrm_dttm = now()
+       WHERE 1 = 1
+           AND work_date = #{workDate}
+           AND work_no = #{workNo}
+    </update>
+    
+    <select id="selectLabelRsltById" resultType="com.egov.ex.entity.LabelRslt">
+       SELECT *
+       FROM t_ails_label_rslt
+       WHERE work_date = #{workDate}
+        AND work_no = #{workNo}
+        /*AND label_type = {labelType}*/
+        <if test='pageType == "번호판"'>
+            AND label_type = 'A'
+        </if>
+        <if test='pageType == "차량번호"'>
+            AND label_type IN ('B','C','D')
+        </if>
+        <if test='pageType == "꺾임"'>
+            AND label_type IN ('E')
+        </if>
+        <if test='pageType == "빛"'>
+            AND label_type IN ('F')
+        </if>
+       LIMIT 1
+    </select>
+</mapper>

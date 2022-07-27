@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.WeightInfoMapper">
+    <select id="selectWeightInfoList" resultType="com.egov.ex.entity.WeightInfo">
+        SELECT * FROM t_ails_weight_info
+        WHERE 1 = 1
+              <if test="weightType != 'ALL'">
+                  AND WEIGHT_TYPE = #{weightType}
+              </if>
+    </select>
+</mapper>

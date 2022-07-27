@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.NmrecgClsfMapper">
+    <insert id="insertNmRecgClsf">
+       INSERT INTO  t_ails_nmrecg_clsf(
+           work_date
+           , work_no
+           , nmrecg_cd
+           , dtrm_nmrecg_cd
+           , label_type
+           , dtrm_yn
+           , dtrm_dttm
+           , occp_yn
+           , occp_dttm
+           , del_yn
+           , del_dttm
+       ) VALUES(
+           workDate
+           , workNo
+           , nmrecgCd
+           , dtrmNmrecgCd
+           , labelType
+           , dtrmYn
+           , dtrmDttm
+           , occpYn
+           , occpDttm
+           , delYn
+           , delDttm
+      )
+    </insert>
+    <update id="updateNmRecgClsf">
+        UPDATE t_ails_nmrecg_clsf SET
+            nmrecg_cd = #{nmrecgCd}
+            , dtrm_nmrecg_cd = #{dtrmNmrecgCd }
+        WHERE work_date = #{workDate}
+            AND work_no = #{workNo}
+    </update>
+</mapper>

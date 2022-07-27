@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.IncnImgMapper">
+
+    <select id="selectIncnImgById" resultType="com.egov.ex.entity.IncnImg">
+        SELECT * 
+        FROM t_ails_incn_img
+        WHERE 1 = 1
+        AND WORK_DATE = #{workDate}
+        AND WORK_NO = #{workNo}
+    </select>
+    
+</mapper>

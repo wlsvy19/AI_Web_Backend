@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.CmmnCdInfoMapper">
+    <select id="selectCmmnCdList" resultType="com.egov.ex.entity.CmmnCdInfo">
+        SELECT *
+          FROM t_ails_cmmn_cd_info
+         WHERE grp_cd = #{grpCd}
+      ORDER BY inqy_ord
+    </select>
+
+    <select id="selectMenuList" resultType="java.util.HashMap">
+        SELECT * FROM t_ails_menu_info
+        WHERE USE_YN = 'Y' AND PRNT_MENU_NO = #{pmenuNo}
+        ORDER BY MENU_TORD
+    </select>
+</mapper>

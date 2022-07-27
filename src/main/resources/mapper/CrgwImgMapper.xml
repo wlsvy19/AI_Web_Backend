@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.CrgwImgMapper">
+
+    <select id="selectList" resultType="com.egov.ex.entity.CrgwImg">
+       SELECT *
+       FROM t_ails_crgw_img
+       WHERE 1 =1
+       ORDER BY WORK_DATE
+    </select>
+
+    <select id="selectCrgwImgById" resultType="com.egov.ex.entity.CrgwImg">
+        SELECT * 
+        FROM t_ails_crgw_img
+        WHERE 1 = 1
+        AND WORK_DATE = #{workDate}
+        AND WORK_NO = #{workNo}
+    </select>
+
+    <select id="selectCrgwImgList" resultType="com.egov.ex.entity.CrgwImg">
+        SELECT work_date,work_no,label_type,file_nm,file_path
+        FROM t_ails_crgw_img
+        WHERE 1 = 1
+        ORDER BY WORK_DATE, WORK_NO
+        LIMIT 10
+    </select>
+
+</mapper>

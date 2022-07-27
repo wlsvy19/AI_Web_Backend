@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.LearnHistoryMapper">
+    <select id="selectLearnHistoryListPage" resultType="com.egov.ex.entity.LearnHistory">
+        SELECT A.* FROM t_ails_learn_history A
+        WHERE 1 = 1
+        <if test="startDate!=null and startDate != ''">
+            AND date_format(A.start_dttm,'%Y-%m-%d') &gt;= #{startDate}
+        </if>
+        <if test="endDate != null and endDate != ''">
+            AND date_format(A.start_dttm,'%Y-%m-%d') &lt;= #{endDate}
+        </if>
+        <if test="combDtstType!=null and combDtstType!=''">
+            AND A.learn_dtst_type = #{combDtstType}
+            ORDER BY A.${ordfield} ${order}
+        </if>
+    </select>
+</mapper>

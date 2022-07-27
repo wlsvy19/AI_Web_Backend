@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.CrgwImgDataMapper">
+<!-- SQL 수정 KMH -->
+<!--     <select id="selectCrgwImgDataList" resultType="com.egov.ex.entity.CrgwImgData"> -->
+<!--        SELECT A.* -->
+<!--         , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data -->
+<!--        FROM t_ails_crgw_img_data A -->
+<!--             JOIN t_ails_learn_rslt B ON A.work_date = B.img_work_date AND A.work_no = B.img_work_no -->
+<!--        WHERE 1 = 1 -->
+<!--         <if test="workDate!=null and workDate!=''"> -->
+<!--             AND A.work_date = #{workDate} -->
+<!--         </if> -->
+<!--         /*AND ifnull(A.pros_yn,'N') = 'N'*/ -->
+<!--         /*AND A.pros_dttm is null*/ -->
+<!--          <if test="learnDtstType!=null and learnDtstType != ''"> -->
+<!--         AND B.learn_dtst_type = #{learnDtstType} -->
+<!--          </if> -->
+<!--         ORDER BY A.work_date, A.work_no -->
+<!--     </select> -->
+
+    <select id="selectCrgwImgDataList" resultType="com.egov.ex.entity.CrgwImgData">
+		SELECT
+			A.*
+			, (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data
+		FROM
+			t_ails_nmrecg_clsf A
+		JOIN t_ails_crgw_img_data B ON
+			A.work_date = B.work_date
+			AND A.work_no = B.work_no
+		WHERE
+			1 = 1
+			AND IFNULL(A.pros_yn, 'N') = 'N'
+		ORDER BY
+			A.work_date,
+			A.work_no
+    </select>
+    
+    
+<!--     <select id="selectCrgwImgDataListPage" resultType="com.egov.ex.entity.CrgwImgData"> -->
+<!--         SELECT A.* -->
+<!--              , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data -->
+<!--         FROM t_ails_crgw_img_data A -->
+<!--             JOIN t_ails_learn_rslt B ON A.work_date = B.img_work_date AND A.work_no = B.img_work_no -->
+<!--         WHERE 1 = 1 -->
+<!--           <if test="nmrecgCd != null and nmrecgCd != ''"> -->
+<!--           AND A.nmrecg_cd = #{nmrecgCd} -->
+<!--           </if> -->
+<!--             /*AND ifnull(A.pros_yn,'N') = 'N'*/ -->
+<!--             /*AND A.pros_dttm is null*/ -->
+<!--         <if test='pageType == "번호판"'> -->
+<!--             AND B.learn_dtst_type = 'A' -->
+<!--         </if> -->
+<!--         <if test='pageType == "차량번호"'> -->
+<!--             AND B.learn_dtst_type IN ('B','C','D') -->
+<!--         </if> -->
+<!--         <if test='pageType == "꺾임"'> -->
+<!--             AND B.learn_dtst_type IN ('E') -->
+<!--         </if> -->
+<!--         <if test='pageType == "빛"'> -->
+<!--             AND B.learn_dtst_type IN ('F') -->
+<!--         </if> -->
+<!--         ORDER BY A.work_date, A.work_no -->
+<!--     </select> -->
+    <select id="selectCrgwImgDataListPage" resultType="com.egov.ex.entity.CrgwImgData">
+        SELECT A.*
+             , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data
+        FROM t_ails_label_rslt A
+        WHERE 1 = 1
+<!--           <if test="nmrecgCd != null and nmrecgCd != ''"> -->
+<!--           AND A.nmrecg_cd = #{nmrecgCd} -->
+<!--           </if> -->
+            /*AND ifnull(A.pros_yn,'N') = 'N'*/
+            /*AND A.pros_dttm is null*/
+        <if test='pageType == "번호판"'>
+            AND A.label_type = 'A'
+        </if>
+        <if test='pageType == "차량번호"'>
+            AND A.label_type IN ('B','C','D')
+        </if>
+        <if test='pageType == "꺾임"'>
+            AND A.label_type IN ('E')
+        </if>
+        <if test='pageType == "빛"'>
+            AND A.label_type IN ('F')
+        </if>
+        ORDER BY A.work_date, A.work_no
+    </select>
+    
+<!--     <update id="updateCrgwImgDataById"> -->
+<!--         update t_ails_crgw_img_data set -->
+<!--             pros_yn = #{prosYn} -->
+<!--             , nmrecg_cd = #{nmrecgCd} -->
+<!--             , pros_dttm = now() -->
+<!--         WHERE work_date = #{workDate} -->
+<!--             AND work_no = #{workNo} -->
+<!--     </update> -->
+    <update id="updateCrgwImgDataById">
+        update t_ails_nmrecg_clsf set
+            dtrm_yn = #{prosYn}
+            , dtrm_nmrecg_cd = #{nmrecgCd}
+            , dtrm_dttm = now()
+        WHERE work_date = #{workDate}
+            AND work_no = #{workNo}
+    </update>
+    
+<!--     <update id="updateCrgwImgDataDelYnById"> -->
+<!--         update t_ails_crgw_img_data set -->
+<!--             del_yn = #{delYn} -->
+<!--         WHERE work_date = #{workDate} -->
+<!--           AND work_no = #{workNo} -->
+<!--     </update> -->
+    <update id="updateCrgwImgDataDelYnById">
+        update t_ails_nmrecg_clsf set
+            del_yn = #{delYn}
+        WHERE work_date = #{workDate}
+          AND work_no = #{workNo}
+    </update>
+</mapper>

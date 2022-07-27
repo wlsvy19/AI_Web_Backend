@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  tomcat:
+    max-http-form-post-size: -1
+spring:
+  profiles:
+    active: prod
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+
+security:
+  token:
+    subject: alis-ex
+    key: 3zZgtbiLI9yWikAcaSJCnoVZw14KTav1+TSJCnoVdaLu/vvjAlubcn2sM+c41193BJkMnVZoWmclLw8aKSviAQ==
+    # 1Day 86400000, 7Day 604800000
+    expiration: 604800000
+  aes256:
+    private:
+      key: Gw14KTdv1+TSJCnobiLI9yTSJCnoVZyLu/vvjAlub2n2sM+c419I9ywikAc70OpWljGw14KTdv1+TSJCnoVZyLu/
+    public:
+      key: u/vvjAlub2n2sM+c419xYBwikAc70OpWljGw14KTdv1+TSJCnoVZylub2n2sM+c419xYBJkMnVZOWmclLwZaKS
+
+logging:
+  level:
+    org:
+      springframework: INFO
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.DashboardMapper">
+    <select id="selectDashboardByTerm" resultType="com.egov.ex.entity.Dashboard">
+        SELECT
+            SUM(nmrecg_cnt) nmrecg_cnt
+            , SUM(nmrecg_size) nmrecg_size
+            , SUM(learn_cnt) learn_cnt
+            , SUM(learn_size) learn_size
+            , SUM(learn_rslt_cnt) learn_rslt_cnt
+            , AVG(learn_rslt_rate) learn_rslt_rate
+            , MAX(algo_ver) learn_rslt_rate
+            , MAX(algo_rflt_date) algo_rflt_date
+          FROM t_ails_dashboard
+         WHERE 1 = 1
+           AND DATE_FORMAT(WORK_DATE, '%Y%m%d')  >= '20010101'
+           AND DATE_FORMAT(WORK_DATE, '%Y%m%d')  &lt;= '20221001'
+    </select>
+</mapper>

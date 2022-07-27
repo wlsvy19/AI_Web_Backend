@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.CombDtstMapper">
+    <select id="selectDtstList" resultType="java.util.HashMap">
+        select
+          WORK_DATE
+          , COMB_DTST_TYPE
+          , count(1) CNT
+        from t_ails_comb_dtst WHERE 1 = 1 AND work_date = #{date}
+        GROUP BY work_date, comb_dtst_type
+        order by work_date
+    </select>
+
+    <select id="selectDtstLearnList" resultType="com.egov.ex.entity.CombDtst">
+        SELECT * FROM t_ails_comb_dtst where comb_dtst_type = #{combDtstType}
+        ORDER BY work_dttm
+    </select>
+
+    <select id="selectDtstInfoById" resultType="com.egov.ex.entity.CombDtst">
+        SELECT * FROM t_ails_comb_dtst
+        where comb_dtst_type = #{combDtstType}
+            AND comb_dtst_id = #{combDtstId}
+       LIMIT 1
+    </select>
+
+<!--     <select id="selectDtstListCount" resultType="java.util.HashMap"> -->
+<!--         select -->
+<!--             WORK_DATE , -->
+<!--             COUNT(1) CNT -->
+<!--         from t_ails_comb_dtst WHERE 1 = 1 -->
+<!--             AND WORK_DATE >= DATE_FORMAT(DATE_ADD(NOW(),INTERVAL -${searchDate}  DAY ),'%Y-%m-%d') -->
+<!--             AND WORK_DATE &lt;= DATE_FORMAT(NOW(),'%Y-%m-%d') -->
+<!--         GROUP BY WORK_DATE -->
+<!--         order by WORK_DATE -->
+<!--     </select> -->
+    <select id="selectDtstListCount" resultType="java.util.HashMap">
+        select
+            WORK_DATE ,
+            COUNT(1) CNT
+        from t_ails_crgw_img_data WHERE 1 = 1
+            AND WORK_DATE >= DATE_FORMAT(DATE_ADD(NOW(),INTERVAL -${searchDate}  DAY ),'%Y-%m-%d')
+            AND WORK_DATE &lt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        GROUP BY WORK_DATE
+        order by WORK_DATE
+    </select>
+</mapper>
