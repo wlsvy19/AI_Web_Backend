@@ -8,6 +8,8 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -38,4 +40,8 @@ public class CrgwImgDataService extends EgovAbstractServiceImpl {
     public List<CrgwImgData> selectCrgwImgDataListPage(CrgwImgDataSearchData param) {
         return crgwImgDataMapper.selectCrgwImgDataListPage(param);
     }
+
+	public List<HashMap> selectCrgwImgDataListCount(CrgwImgDataSearchData param) {
+        return crgwImgDataMapper.selectCrgwImgDataListCount(param);
+	}
 }

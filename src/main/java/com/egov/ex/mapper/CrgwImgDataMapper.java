@@ -5,6 +5,7 @@ import com.egov.ex.entity.CrgwImgData;
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,4 +27,6 @@ public interface CrgwImgDataMapper  {
     void updateCrgwImgDataDelYnById(CrgwImgDataSaveData param);
 
     List<CrgwImgData> selectCrgwImgDataListPage(CrgwImgDataSearchData param);
+
+	List<HashMap> selectCrgwImgDataListCount(CrgwImgDataSearchData param);
 }

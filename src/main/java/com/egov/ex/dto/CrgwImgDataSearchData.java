@@ -10,6 +10,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class CrgwImgDataSearchData extends Page{
+	private String searchDate;
+    private String date;
+    
     private String pageType;
     private String workDate;
     private String workNo;

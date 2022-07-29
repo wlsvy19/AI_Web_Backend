@@ -19,7 +19,7 @@ import java.util.List;
 @Repository
 public interface CombDtstMapper  {
 
-    List<HashMap> selectDtstList(CombDtstSearchDto param);
+    List<CombDtst> selectDtstList(CombDtstSearchDto param);
 
     List<HashMap> selectDtstListCount(CombDtstSearchDto param);
 

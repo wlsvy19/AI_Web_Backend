@@ -46,6 +46,9 @@ public class CrgwImgData {
 
     @ApiModelProperty(value = "미인식코드")
     private String nmrecgCd;
+    
+    @ApiModelProperty(value = "확정미인식코드")
+    private String dtrmNmrecgCd;
 
     @ApiModelProperty(value = "라벨링 데이터")
     private String labelDataText;

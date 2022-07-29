@@ -24,4 +24,6 @@ public interface UnitDtstMapper {
     List<UnitDtst> selectUnitDtstList(UnitDtstSearchDto param);
 
     List<ExlprServerInfo> updtList(ExlprServerInfoSearchDto param);
+
+	List<UnitDtst> selectUnitDtstListById(UnitDtstSearchDto param);
 }

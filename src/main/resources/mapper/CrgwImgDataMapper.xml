@@ -97,7 +97,7 @@
 <!--     </update> -->
     <update id="updateCrgwImgDataById">
         update t_ails_nmrecg_clsf set
-            dtrm_yn = #{prosYn}
+            dtrm_yn = #{dtrmYn}
             , dtrm_nmrecg_cd = #{nmrecgCd}
             , dtrm_dttm = now()
         WHERE work_date = #{workDate}
@@ -116,4 +116,15 @@
         WHERE work_date = #{workDate}
           AND work_no = #{workNo}
     </update>
+    
+   <select id="selectCrgwImgDataListCount" resultType="java.util.HashMap">
+        select
+            WORK_DATE ,
+            COUNT(1) CNT
+        from t_ails_crgw_img_data WHERE 1 = 1
+            AND WORK_DATE >= DATE_FORMAT(DATE_ADD(NOW(),INTERVAL -${searchDate}  DAY ),'%Y-%m-%d')
+            AND WORK_DATE &lt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        GROUP BY WORK_DATE
+        order by WORK_DATE
+    </select>
 </mapper>

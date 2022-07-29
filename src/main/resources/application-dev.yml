@@ -3,7 +3,7 @@ spring:
     url: jdbc:log4jdbc:mysql://110.8.84.56:33307/ailsdb?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     username: ails
-    password: test1234!@
+    password: "!new1234"
 
 file:
   basedir: /home/ails/project/upload

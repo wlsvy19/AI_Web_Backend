@@ -14,6 +14,7 @@ public class CrgwImgDataSaveData {
     private String workDate;
     private String workNo;
     private String nmrecgCd;
+    private String dtrmYn;
 
     private String delYn;
     private String prosYn;

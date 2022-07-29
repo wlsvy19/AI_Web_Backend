@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egov.ex.mapper.CombDtstMapper">
-    <select id="selectDtstList" resultType="java.util.HashMap">
-        select
-          WORK_DATE
-          , COMB_DTST_TYPE
-          , count(1) CNT
-        from t_ails_comb_dtst WHERE 1 = 1 AND work_date = #{date}
-        GROUP BY work_date, comb_dtst_type
-        order by work_date
+<!--     <select id="selectDtstList" resultType="java.util.HashMap"> -->
+<!--         select -->
+<!--           WORK_DATE -->
+<!--           , COMB_DTST_TYPE -->
+<!--           , count(1) CNT -->
+<!--         from t_ails_comb_dtst WHERE 1 = 1 AND work_date = #{date} -->
+<!--         GROUP BY work_date, comb_dtst_type -->
+<!--         order by work_date -->
+<!--     </select> -->
+    <select id="selectDtstList" resultType="com.egov.ex.entity.CombDtst">
+		SELECT a.work_date,
+		       a.comb_dtst_id,
+		       (select count(0) from t_ails_unit_dtst b where a.comb_dtst_id = b.comb_dtst_id) as unit_dtst_cnt,
+		       a.total_cnt
+		FROM t_ails_comb_dtst a
+		WHERE 1 = 1 AND a.comb_dtst_type = #{combDtstType}
+
     </select>
 
     <select id="selectDtstLearnList" resultType="com.egov.ex.entity.CombDtst">

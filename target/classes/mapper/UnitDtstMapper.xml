@@ -4,9 +4,18 @@
     <select id="selectUnitDtstList" resultType="com.egov.ex.entity.UnitDtst">
         select * from t_ails_unit_dtst A
         WHERE 1 = 1
+            AND unit_dtst_type = #{unitDtstType}
+        order by  work_date desc
+    </select>
+    
+    <select id="selectUnitDtstListById" resultType="com.egov.ex.entity.UnitDtst">
+        select *
+        from t_ails_unit_dtst A
+        WHERE 1 = 1
             AND comb_dtst_id = #{combDtstId}
         order by  work_date desc
     </select>
+    
     <select id="updtList" resultType="com.egov.ex.entity.ExlprServerInfo">
        select * from t_ails_exlpr_server_info
        where 1 = 1

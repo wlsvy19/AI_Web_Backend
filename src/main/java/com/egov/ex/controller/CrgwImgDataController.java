@@ -2,6 +2,7 @@ package com.egov.ex.controller;
 
 
 import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.CombDtstSearchDto;
 import com.egov.ex.dto.CrgwImgDataSaveData;
 import com.egov.ex.dto.CrgwImgDataSearchData;
 import com.egov.ex.dto.CrgwImgSearchData;
@@ -13,6 +14,10 @@ import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -60,5 +65,11 @@ public class CrgwImgDataController {
     public AjaxResp crgwImgDel(@RequestBody CrgwImgDataSaveData param) throws Exception {
         crgwImgDataService.updateCrgwImgDataDelYnById(param);
         return AjaxResp.success();
+    }
+    
+    @PostMapping("/api/crgw-img-data/list/count")
+    public AjaxResp crgwImgDataListCount(@RequestBody CrgwImgDataSearchData param) throws IOException, NoSuchAlgorithmException {
+        List<HashMap> list = crgwImgDataService.selectCrgwImgDataListCount(param);
+        return AjaxResp.success(list);
     }
 }

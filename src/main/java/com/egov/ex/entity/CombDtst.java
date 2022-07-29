@@ -33,6 +33,9 @@ public class CombDtst {
 
     @ApiModelProperty(value = "통합데이터셋유형")
     private String combDtstType;
+    
+    @ApiModelProperty(value = "단위데이터셋개수")
+    private String unitDtstCnt;
 
     @ApiModelProperty(value = "총데이터수")
     private Integer totalCnt;

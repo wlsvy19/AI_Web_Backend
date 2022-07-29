@@ -1,20 +1,24 @@
 package com.egov.ex.controller;
 
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.egov.ex.dto.AjaxResp;
 import com.egov.ex.dto.ExlprServerInfoSearchDto;
 import com.egov.ex.dto.UnitDtstSearchDto;
-import com.egov.ex.dto.UserInfoSearchDto;
 import com.egov.ex.entity.ExlprServerInfo;
 import com.egov.ex.entity.UnitDtst;
-import com.egov.ex.entity.UserInfo;
 import com.egov.ex.service.UnitDtstService;
 import com.egov.ex.util.PageUtil;
-import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.util.List;
+import io.swagger.annotations.Api;
 
 /**
  * <p>
@@ -39,8 +43,16 @@ public class UnitDtstController {
 
     @PostMapping("/api/unit-dtst/list")
     public AjaxResp list(@RequestBody UnitDtstSearchDto param) throws Exception {
+    	PageUtil.startPage(param);
         List<UnitDtst> list = unitDtstService.selectUnitDtstList(param);
-        return AjaxResp.success(list);
+        return AjaxResp.success(PageUtil.of(list));
+    }
+    
+    @PostMapping("/api/unit-dtst/list/id")
+    public AjaxResp unitDtstListById(@RequestBody UnitDtstSearchDto param) throws Exception {
+        PageUtil.startPage(param);
+        List<UnitDtst> list = unitDtstService.selectUnitDtstListById(param);
+        return AjaxResp.success(PageUtil.of(list));
     }
 
     @PostMapping("/api/updt/list")

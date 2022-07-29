@@ -23,6 +23,6 @@ public class WeightInfoService extends EgovAbstractServiceImpl {
     private WeightInfoMapper weightInfoMapper;
 
     public List<WeightInfo> selectWeightInfoList(WeightSearchDto param) {
-        return weightInfoMapper.selectWeightInfoList(param);
+        return weightInfoMapper.selectWeightInfoList(param); 
     }
 }

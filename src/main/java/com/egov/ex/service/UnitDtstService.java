@@ -31,4 +31,8 @@ public class UnitDtstService extends EgovAbstractServiceImpl {
     public List<ExlprServerInfo> updtList(ExlprServerInfoSearchDto param) {
         return unitDtstMapper.updtList(param);
     }
+
+	public List<UnitDtst> selectUnitDtstListById(UnitDtstSearchDto param) {
+		return unitDtstMapper.selectUnitDtstListById(param);
+	}
 }

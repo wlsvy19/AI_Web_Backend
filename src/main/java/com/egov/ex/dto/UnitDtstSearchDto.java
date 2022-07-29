@@ -9,6 +9,13 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class UnitDtstSearchDto {
+public class UnitDtstSearchDto extends Page {
+    private String workDate;
     private String combDtstId;
+    private String unitDtstId;
+    private String unitDtstType;
+    private String totalCnt;
+
+    private String searchDate;
+    private String date;
 }

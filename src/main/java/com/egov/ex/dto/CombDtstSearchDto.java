@@ -14,10 +14,12 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class CombDtstSearchDto {
+public class CombDtstSearchDto extends Page {
     private String workDate;
     private String combDtstId;
     private String combDtstType;
+    private String unitDtstCnt;
+    private String totalCnt;
 
     private String searchDate;
     private String date;

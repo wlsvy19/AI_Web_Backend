@@ -23,7 +23,7 @@ public class CombDtstService extends EgovAbstractServiceImpl {
     @Resource
     private CombDtstMapper combDtstMapper;
 
-    public List<HashMap> selectDtstList(CombDtstSearchDto param) {
+    public List<CombDtst> selectDtstList(CombDtstSearchDto param) {
        return combDtstMapper.selectDtstList(param);
     }
 
