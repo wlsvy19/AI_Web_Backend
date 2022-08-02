@@ -23,17 +23,11 @@ public class ServerStatus {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "생성일자")
-    private String workDate;
-
-    @ApiModelProperty(value = "생성일시")
-    private String workDttm;
+    @ApiModelProperty(value = "서버이름")
+    private String server;
 
     @ApiModelProperty(value = "CPU사용률")
     private String cpuUsageRate;
-
-    @ApiModelProperty(value = "CPU온도")
-    private String cpuTemp;
 
     @ApiModelProperty(value = "메모리크기")
     private String memSize;
@@ -53,11 +47,17 @@ public class ServerStatus {
     @ApiModelProperty(value = "디스크사용률")
     private String diskUsageRate;
 
-    @ApiModelProperty(value = "GPU크기")
-    private String gpuSize;
+    @ApiModelProperty(value = "GPU메모리크기")
+    private String gpuRamSize;
 
-    @ApiModelProperty(value = "GPU사용량")
-    private String gpuUsage;
+    @ApiModelProperty(value = "GPU메모리사용량")
+    private String gpuRamUsage;
+    
+    @ApiModelProperty(value = "GPU메모리사용률")
+    private String gpuRamUsageRate;
+    
+    @ApiModelProperty(value = "GPU현온도")
+    private String gpuTemperature;
 
     @ApiModelProperty(value = "GPU사용률")
     private String gpuUsageRate;

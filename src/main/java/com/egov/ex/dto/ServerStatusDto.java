@@ -10,6 +10,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ServerStatusDto {
-    private String workDate;
+    private String server;
 
 }
