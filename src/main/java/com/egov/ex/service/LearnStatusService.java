@@ -1,13 +1,17 @@
 package com.egov.ex.service;
 
-import com.egov.ex.dto.LearnStatusDto;
-import com.egov.ex.entity.LearnStatus;
-import com.egov.ex.entity.ServerStatus;
-import com.egov.ex.mapper.LearnStatusMapper;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.egov.ex.dto.LearnStatusDto;
+import com.egov.ex.dto.LearnStatusTempDto;
+import com.egov.ex.entity.LearnStatusTemp;
+import com.egov.ex.mapper.LearnStatusMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -23,7 +27,7 @@ public class LearnStatusService extends EgovAbstractServiceImpl {
     @Resource
     private LearnStatusMapper learnStatusMapper;
 
-    public LearnStatus selectLearnStatusInfo(LearnStatusDto param) {
+    public List<LearnStatusTemp> selectLearnStatusInfo(LearnStatusTempDto param) {
         return learnStatusMapper.selectLearnStatusInfo(param);
     }
 

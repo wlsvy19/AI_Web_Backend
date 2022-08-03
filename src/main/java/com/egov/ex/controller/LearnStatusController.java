@@ -1,18 +1,24 @@
 package com.egov.ex.controller;
 
 
-import com.egov.ex.dto.AjaxResp;
-import com.egov.ex.dto.LearnStatusDto;
-import com.egov.ex.dto.ServerStatusDto;
-import com.egov.ex.entity.LearnStatus;
-import com.egov.ex.entity.ServerStatus;
-import com.egov.ex.service.LearnStatusService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.LearnStatusDto;
+import com.egov.ex.dto.LearnStatusTempDto;
+import com.egov.ex.entity.LearnStatusTemp;
+import com.egov.ex.service.LearnStatusService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>
@@ -36,8 +42,8 @@ public class LearnStatusController {
 
     @ApiOperation("학습상태 모니터링")
     @PostMapping("/api/learn-status/data")
-    public AjaxResp learnStatus(@RequestBody LearnStatusDto param) throws Exception {
-        LearnStatus data = learnStatusService.selectLearnStatusInfo(param);
+    public AjaxResp learnStatus(@RequestBody LearnStatusTempDto param) throws Exception {
+        List<LearnStatusTemp> data = learnStatusService.selectLearnStatusInfo(param);                
         return AjaxResp.success(data);
     }
 
