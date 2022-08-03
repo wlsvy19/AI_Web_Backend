@@ -9,8 +9,27 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class LearnStatusDto {
+public class LearnStatusInfoDto {
+
+	private String trainingYn;
+
+    private String trainingStep;
+
     private String trainingId;
+
+    private String engineType;
+    
+    private String combDtstId;
+     
+    private String weightId;
+    
+    private Character wantToStop;
+    
+    private String startDttm;
+    
+    private String finishDttm;
+    
+    private String errorMsg;
     
     public void setTrainingId(String id) {
     	trainingId = id;

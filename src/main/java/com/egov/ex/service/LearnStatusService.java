@@ -7,8 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.egov.ex.dto.LearnStatusDto;
-import com.egov.ex.dto.LearnStatusTempDto;
-import com.egov.ex.entity.LearnStatusTemp;
+import com.egov.ex.dto.LearnStatusInfoDto;
+import com.egov.ex.dto.LearnStatusOrgDto;
+import com.egov.ex.entity.LearnStatus;
 import com.egov.ex.mapper.LearnStatusMapper;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -27,18 +28,22 @@ public class LearnStatusService extends EgovAbstractServiceImpl {
     @Resource
     private LearnStatusMapper learnStatusMapper;
 
-    public List<LearnStatusTemp> selectLearnStatusInfo(LearnStatusTempDto param) {
-        return learnStatusMapper.selectLearnStatusInfo(param);
+    public LearnStatusInfoDto selectLearnStatusInfo() {
+    	return learnStatusMapper.selectLearnStatusInfo();
+    }
+    
+    public List<LearnStatus> selectLearnStatus(LearnStatusDto param) {
+        return learnStatusMapper.selectLearnStatus(param);
     }
 
-    public int insertLearnStatusInfo(LearnStatusDto param) {
-        return learnStatusMapper.insertLearnStatusInfo(param);
+    public int insertLearnStatusOrg(LearnStatusOrgDto param) {
+        return learnStatusMapper.insertLearnStatusOrg(param);
     }
 
-    public int updateStartLearnStatusInfo(LearnStatusDto param) {
-        return learnStatusMapper.updateStartLearnStatusInfo(param);
+    public int updateStartLearnStatusOrg(LearnStatusOrgDto param) {
+        return learnStatusMapper.updateStartLearnStatusOrg(param);
     }
-    public int updateStopLearnStatusInfo(LearnStatusDto param) {
-        return learnStatusMapper.updateStopLearnStatusInfo(param);
+    public int updateStopLearnStatusOrg(LearnStatusOrgDto param) {
+        return learnStatusMapper.updateStopLearnStatusOrg(param);
     }
 }

@@ -42,6 +42,7 @@ C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\j
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\WeightSearchDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\ExlprServerInfo.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\util\AESEncryptHandler.java
+C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\LearnStatusInfo.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\CombDtstController.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\UserInfoDelDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\config\SwaggerConfig.java
@@ -56,6 +57,7 @@ C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\j
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\util\CookieUtils.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\CmmnCdInfoController.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\NmrecgClsfDto.java
+C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\LearnStatusOrg.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\exception\ModelViewAspect.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LabelRsltSaveDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\service\CmmnCdInfoService.java
@@ -76,6 +78,7 @@ C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\j
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\service\CombDtstService.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\CrgwImg.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\CommonController.java
+C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LearnStatusOrgDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\util\FileUtil.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LearnHisSearchDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\AlgoInfoController.java
@@ -93,6 +96,7 @@ C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\j
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\mapper\ServerStatusMapper.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\UserInfo.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\service\LearnStatusService.java
+C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LearnStatusInfoDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\LearnStatus.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\WeightInfo.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\service\UserService.java
