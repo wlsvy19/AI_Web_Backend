@@ -19,10 +19,10 @@ import lombok.EqualsAndHashCode;
 public class LearnStatusInfo {
 
     @ApiModelProperty(value = "현재 학습 진행 여부")
-    private String trainingYn;
+    private Character trainingYn;
 
     @ApiModelProperty(value = "학습 진행 단계")
-    private String trainingStep;
+    private int trainingStep;
 
     @ApiModelProperty(value = "트레이닝 ID")
     private String trainingId;
@@ -42,6 +42,9 @@ public class LearnStatusInfo {
     @ApiModelProperty(value = "학습 시작 시간")
     private String startDttm;
     
+    @ApiModelProperty(value = "학습 종료까지 남은 시간")
+    private String remainTime;
+    
     @ApiModelProperty(value = "학습 종료 시간")
     private String finishDttm;
     
@@ -51,5 +54,45 @@ public class LearnStatusInfo {
     public String getTrainingId() {
     	return trainingId;
     }
+
+	public Character getTrainingYn() {
+		return trainingYn;
+	}
+
+	public int getTrainingStep() {
+		return trainingStep;
+	}
+
+	public String getEngineType() {
+		return engineType;
+	}
+
+	public String getCombDtstId() {
+		return combDtstId;
+	}
+
+	public String getWeightId() {
+		return weightId;
+	}
+
+	public Character getWantToStop() {
+		return wantToStop;
+	}
+
+	public String getStartDttm() {
+		return startDttm;
+	}
+
+	public String getRemainTime() {
+		return remainTime;
+	}
+
+	public String getFinishDttm() {
+		return finishDttm;
+	}
+
+	public String getErrorMsg() {
+		return errorMsg;
+	}
 
 }

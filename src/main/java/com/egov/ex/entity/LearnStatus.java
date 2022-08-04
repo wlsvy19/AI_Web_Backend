@@ -22,27 +22,27 @@ public class LearnStatus {
     private String trainingId;
 
     @ApiModelProperty(value = "이터레이션")
-    private String iteration;
+    private int iteration;
 
     @ApiModelProperty(value = "Loss율")
-    private String lossRate;
+    private Float lossRate;
 
     @ApiModelProperty(value = "mAP값")
-    private String mapValue;
+    private Float mapValue;
     
     public String getTrainingId() {
     	return trainingId;
     }
 
-    public String getIteration() {
+    public int getIteration() {
     	return iteration;
     }
     
-    public String getLossRate() {
+    public Float getLossRate() {
     	return lossRate;
     }
     
-    public String getMapValue() {
+    public Float getMapValue() {
     	return mapValue;
     }
 }

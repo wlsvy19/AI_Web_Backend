@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.egov.ex.dto.LearnStatusDto;
 import com.egov.ex.dto.LearnStatusInfoDto;
-import com.egov.ex.dto.LearnStatusOrgDto;
 import com.egov.ex.entity.LearnStatus;
+import com.egov.ex.entity.LearnStatusInfo;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
@@ -22,13 +22,11 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Repository
 public interface LearnStatusMapper {
 
-	LearnStatusInfoDto selectLearnStatusInfo(); 
+	LearnStatusInfo selectLearnStatusInfo(); 
 	
     List<LearnStatus> selectLearnStatus(LearnStatusDto param);
 
-    int insertLearnStatusOrg(LearnStatusOrgDto param);
-
-    int updateStartLearnStatusOrg(LearnStatusOrgDto param);
-
-    int updateStopLearnStatusOrg(LearnStatusOrgDto param);
+    int updateStartLearnStatusInfo(LearnStatusInfoDto param);
+    
+    int updateStopLearnStatusInfo();
 }

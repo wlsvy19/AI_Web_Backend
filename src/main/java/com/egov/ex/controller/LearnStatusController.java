@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.egov.ex.dto.AjaxResp;
 import com.egov.ex.dto.LearnStatusDto;
 import com.egov.ex.dto.LearnStatusInfoDto;
-import com.egov.ex.dto.LearnStatusOrgDto;
 import com.egov.ex.entity.LearnStatus;
+import com.egov.ex.entity.LearnStatusInfo;
 import com.egov.ex.service.LearnStatusService;
 
 import io.swagger.annotations.Api;
@@ -50,25 +50,26 @@ public class LearnStatusController {
 
     @ApiOperation("학습진행에서 현재 날짜 기준 학습하기")
     @PostMapping("/api/learn-status/data/start")
-    public AjaxResp startStudy(@RequestBody LearnStatusOrgDto param) throws Exception {
-        // LearnStatus data = learnStatusService.selectLearnStatusInfo(param);
-        if(StringUtils.isEmpty(param.getWorkDate())) return AjaxResp.error("NULL_VALUE", "날자를 입력하세요.");
-        if(StringUtils.isEmpty(param.getLearnDtstId())) return AjaxResp.error("NULL_VALUE", "데이터셋 ID를 입력하세요.");
+    public AjaxResp startStudy(@RequestBody LearnStatusInfoDto param) throws Exception {
+        if(StringUtils.isEmpty(param.getCombDtstId())) return AjaxResp.error("NULL_VALUE", "데이터셋 ID를 입력하세요.");
         if(StringUtils.isEmpty(param.getWeightId())) return AjaxResp.error("NULL_VALUE", "가중치를 입력하세요.");
-        if(StringUtils.isEmpty(param.getLearnDtstType())) return AjaxResp.error("NULL_VALUE", "데이터쏏 유형을 입력하세요.");
-        int r = learnStatusService.insertLearnStatusOrg(param);
-        if(r == 0) learnStatusService.updateStartLearnStatusOrg(param);
+        if(StringUtils.isEmpty(param.getEngineType())) return AjaxResp.error("NULL_VALUE", "데이터쏏 유형을 입력하세요.");
+     
+        learnStatusService.updateStartLearnStatusInfo(param);
         return AjaxResp.success();
     }
-
-    @ApiOperation("학습진행에서 현재 날짜 기준 학습하기")
+    
+    @ApiOperation("학습진행중 정보")
+    @PostMapping("/api/learn-status/data/ing")
+    public AjaxResp studying() throws Exception {
+    	LearnStatusInfo data = learnStatusService.selectLearnStatusInfo();
+        return AjaxResp.success(data);
+    }
+    
+    @ApiOperation("학습진행 멈추기")
     @PostMapping("/api/learn-status/data/stop")
-    public AjaxResp stopStudy(@RequestBody LearnStatusOrgDto param) throws Exception {
-        if(StringUtils.isEmpty(param.getWorkDate())) return AjaxResp.error("NULL_VALUE", "날자를 입력하세요.");
-        if(StringUtils.isEmpty(param.getLearnDtstId())) return AjaxResp.error("NULL_VALUE", "데이터셋 ID를 입력하세요.");
-        if(StringUtils.isEmpty(param.getWeightId())) return AjaxResp.error("NULL_VALUE", "가중치를 입력하세요.");
-        if(StringUtils.isEmpty(param.getLearnDtstType())) return AjaxResp.error("NULL_VALUE", "데이터쏏 유형을 입력하세요.");
-        learnStatusService.updateStopLearnStatusOrg(param);
+    public AjaxResp stopStudy() throws Exception {
+        learnStatusService.updateStopLearnStatusInfo();
         return AjaxResp.success();
     }
 

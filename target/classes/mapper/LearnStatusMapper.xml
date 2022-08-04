@@ -8,56 +8,22 @@
     <select id="selectLearnStatus" resultType="com.egov.ex.entity.LearnStatus">
         SELECT * FROM t_ails_learn_status
         WHERE training_id = #{trainingId}            
-    </select>
-    <select id="selectLearnStatusOrg" resultType="com.egov.ex.entity.LearnStatusOrg">
-        SELECT * FROM t_ails_learn_status_org
-        WHERE 1 = 1 and work_date = #{workDate}
-            AND learn_dtst_id = #{learnDtstId}
-            AND learn_dtst_type = #{learnDtstType}
-            AND weight_id  = #{weightId}
-    </select>
-    <insert id="insertLearnStatusOrg">
-        INSERT INTO t_ails_learn_status_org(
-            work_date
-            , start_dttm
-            , remain_dttm
-            , end_dttm
-            , end_yn
-            , learn_dtst_id
-            , learn_dtst_type
-            , weight_id
-        )
-        SELECT
-            date_format(now(), '%Y-%m-%d') AS work_date
-             , now() AS work_dttm
-             , now() AS start_dttm
-             , null AS end_dttm
-             , 'N' AS end_yn
-             , #{learnDtstId} AS learn_dtst_id
-             , #{learnDtstType} AS learn_dtst_type
-             , #{weightId} AS weight_id
-        WHERE 1 = 1
-            AND NOT EXISTS (
-                SELECT 1 FROM t_ails_learn_status
-                WHERE learn_dtst_id = #{learnDtstId}
-                    AND learn_dtst_type = #{learnDtstType}
-                    AND weight_id = #{weightId}
-            )
-    </insert>
-    <update id="updateStopLearnStatusOrg">
-       update t_ails_learn_status_org set
-           end_dttm = now(),
-           end_yn = 'Y'
-       WHERE learn_dtst_id = #{learnDtstId}
-            AND learn_dtst_type = #{learnDtstType}
-            AND weight_id = #{weightId}
+    </select>    
+    <update id="updateStartLearnStatusInfo">
+       update t_ails_learn_status_info set
+           training_yn = 'Y',
+           training_id = #{trainingId},
+           engine_type = #{engineType},
+           comb_dtst_id = #{combDtstId},
+           weight_id = #{weightId},
+           want_to_stop = 'N',
+           start_dttm = #{startDttm},
+           remain_time = null,
+           finish_dttm = null,
+           error_msg = ""
     </update>
-    <update id="updateStartLearnStatusOrg">
-        update t_ails_learn_status_org set
-           end_dttm = null,
-           end_yn = 'N'
-        WHERE learn_dtst_id = #{learnDtstId}
-          AND learn_dtst_type = #{learnDtstType}
-          AND weight_id = #{weightId}
+    <update id="updateStopLearnStatusInfo">
+       update t_ails_learn_status_info set           
+           want_to_stop = 'Y'
     </update>
 </mapper>

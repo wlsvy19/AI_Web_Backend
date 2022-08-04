@@ -11,9 +11,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class LearnStatusInfoDto {
 
-	private String trainingYn;
+	private Character trainingYn;
 
-    private String trainingStep;
+    private int trainingStep;
 
     private String trainingId;
 
@@ -27,15 +27,55 @@ public class LearnStatusInfoDto {
     
     private String startDttm;
     
+    private String remainTime;
+    
     private String finishDttm;
     
     private String errorMsg;
+
+	public Character getTrainingYn() {
+		return trainingYn;
+	}
+
+	public int getTrainingStep() {
+		return trainingStep;
+	}
+
+	public String getTrainingId() {
+		return trainingId;
+	}
+
+	public String getEngineType() {
+		return engineType;
+	}
+
+	public String getCombDtstId() {
+		return combDtstId;
+	}
+
+	public String getWeightId() {
+		return weightId;
+	}
+
+	public Character getWantToStop() {
+		return wantToStop;
+	}
+
+	public String getStartDttm() {
+		return startDttm;
+	}
+	
+	public String getRemainTime() {
+		return remainTime;
+	}
+
+	public String getFinishDttm() {
+		return finishDttm;
+	}
+
+	public String getErrorMsg() {
+		return errorMsg;
+	}
     
-    public void setTrainingId(String id) {
-    	trainingId = id;
-    }
     
-    public String getTrainingId() {
-    	return trainingId; 
-    }
 }
