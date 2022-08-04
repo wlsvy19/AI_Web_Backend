@@ -1,23 +1,22 @@
 package com.egov.ex.controller;
 
 
-import com.egov.ex.dto.AjaxResp;
-import com.egov.ex.entity.CmmnCdInfo;
-import com.egov.ex.entity.Dashboard;
-import com.egov.ex.service.CommonService;
-import com.egov.ex.service.DashboardService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.entity.CmmnCdInfo;
+import com.egov.ex.service.CommonService;
+
+import io.swagger.annotations.Api;
 
 /**
  * <p>

@@ -22,7 +22,11 @@ public class PlateImg {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "생성일자")
+    public byte[] getImgData() {
+		return imgData;
+	}
+
+	@ApiModelProperty(value = "생성일자")
     private String workDate;
 
     @ApiModelProperty(value = "생성순번")

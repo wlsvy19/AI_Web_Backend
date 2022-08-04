@@ -1,24 +1,26 @@
 package com.egov.ex.controller;
 
 
-import com.egov.ex.dto.AjaxResp;
-import com.egov.ex.dto.CombDtstSearchDto;
-import com.egov.ex.dto.CrgwImgDataSaveData;
-import com.egov.ex.dto.CrgwImgDataSearchData;
-import com.egov.ex.dto.CrgwImgSearchData;
-import com.egov.ex.entity.CrgwImg;
-import com.egov.ex.entity.CrgwImgData;
-import com.egov.ex.service.CrgwImgDataService;
-import com.egov.ex.util.PageUtil;
-import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.CrgwImgDataSaveData;
+import com.egov.ex.dto.CrgwImgDataSearchData;
+import com.egov.ex.entity.CrgwImgData;
+import com.egov.ex.service.CrgwImgDataService;
+import com.egov.ex.util.PageUtil;
+
+import io.swagger.annotations.Api;
 
 /**
  * <p>

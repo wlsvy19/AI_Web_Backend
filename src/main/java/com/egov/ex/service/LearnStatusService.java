@@ -1,13 +1,18 @@
 package com.egov.ex.service;
 
-import com.egov.ex.dto.LearnStatusDto;
-import com.egov.ex.entity.LearnStatus;
-import com.egov.ex.entity.ServerStatus;
-import com.egov.ex.mapper.LearnStatusMapper;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.egov.ex.dto.LearnStatusDto;
+import com.egov.ex.dto.LearnStatusInfoDto;
+import com.egov.ex.entity.LearnStatus;
+import com.egov.ex.entity.LearnStatusInfo;
+import com.egov.ex.mapper.LearnStatusMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -23,18 +28,19 @@ public class LearnStatusService extends EgovAbstractServiceImpl {
     @Resource
     private LearnStatusMapper learnStatusMapper;
 
-    public LearnStatus selectLearnStatusInfo(LearnStatusDto param) {
-        return learnStatusMapper.selectLearnStatusInfo(param);
+    public LearnStatusInfo selectLearnStatusInfo() {
+    	return learnStatusMapper.selectLearnStatusInfo();
+    }
+    
+    public List<LearnStatus> selectLearnStatus(LearnStatusDto param) {
+        return learnStatusMapper.selectLearnStatus(param);
     }
 
-    public int insertLearnStatusInfo(LearnStatusDto param) {
-        return learnStatusMapper.insertLearnStatusInfo(param);
-    }
-
-    public int updateStartLearnStatusInfo(LearnStatusDto param) {
+    public int updateStartLearnStatusInfo(LearnStatusInfoDto param) {
         return learnStatusMapper.updateStartLearnStatusInfo(param);
     }
-    public int updateStopLearnStatusInfo(LearnStatusDto param) {
-        return learnStatusMapper.updateStopLearnStatusInfo(param);
+    
+    public int updateStopLearnStatusInfo() {
+        return learnStatusMapper.updateStopLearnStatusInfo();
     }
 }

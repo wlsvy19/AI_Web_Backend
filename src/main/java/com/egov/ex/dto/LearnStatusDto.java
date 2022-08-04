@@ -10,9 +10,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class LearnStatusDto {
-    private String workDate;
-    private String learnDtstId;
-    private String learnDtstType;
-    private String weightId;
-
+    private String trainingId;
+    
+    public void setTrainingId(String id) {
+    	trainingId = id;
+    }
+    
+    public String getTrainingId() {
+    	return trainingId; 
+    }
 }

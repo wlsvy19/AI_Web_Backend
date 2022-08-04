@@ -23,7 +23,11 @@ public class NmrecgSampleInfo {
     @ApiModelProperty(value = "유형코드")
     private String cmmnCd;
 
-    @ApiModelProperty(value = "img data")
+    public String getImgData() {
+		return imgData;
+	}
+
+	@ApiModelProperty(value = "img data")
     private String imgData;
 
 }

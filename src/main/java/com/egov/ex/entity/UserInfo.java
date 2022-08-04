@@ -21,12 +21,12 @@ import lombok.EqualsAndHashCode;
 @ApiModel(value="UserInfo", description="사용자 정보")
 public class UserInfo  {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "사용자번호")
     private int userNo;
 
-    @ApiModelProperty(value = "사용자아이디")
+	@ApiModelProperty(value = "사용자아이디")
     private String userId;
 
     @ApiModelProperty(value = "사용자명")
@@ -57,4 +57,31 @@ public class UserInfo  {
     @ApiModelProperty(value = "토큰")
     private String accessToken;
 
+    public int getUserNo() {
+		return userNo;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public String getUserNm() {
+		return userNm;
+	}
+
+	public String getUserPswd() {
+		return userPswd;
+	}
+
+    public void setUserPswd(String userPswd) {
+		this.userPswd = userPswd;
+	}
+
+	public void setLsttmAltrDttm(String lsttmAltrDttm) {
+		this.lsttmAltrDttm = lsttmAltrDttm;
+	}
+	
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}
 }

@@ -20,7 +20,11 @@ import lombok.EqualsAndHashCode;
 @ApiModel(value="CrgwImg", description="차로 영상 이미지 정보")
 public class CrgwImg {
 
-    private static final long serialVersionUID = 1L;
+    public byte[] getImgData() {
+		return imgData;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "생성일자")
     private String workDate;
