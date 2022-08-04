@@ -1,7 +1,5 @@
 package com.egov.ex.entity;
 
-import java.sql.Blob;
-import java.time.LocalDate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -19,10 +17,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @ApiModel(value="CrgwImg", description="차로 영상 이미지 정보")
 public class CrgwImg {
-
-    public byte[] getImgData() {
-		return imgData;
-	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -42,5 +36,29 @@ public class CrgwImg {
 
     @ApiModelProperty(value = "파일Blob")
     private byte[] imgData;
+    
+	public String getWorkDate() {
+		return workDate;
+	}
+
+	public String getWorkNo() {
+		return workNo;
+	}
+
+	public String getLabelType() {
+		return labelType;
+	}
+
+	public String getFileNm() {
+		return fileNm;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public byte[] getImgData() {
+		return imgData;
+	}
 
 }
