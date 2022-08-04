@@ -1,5 +1,6 @@
 com\egov\ex\service\NmrecgSampleInfoService.class
 com\egov\ex\service\PlateImgService.class
+com\egov\ex\dto\LearnStatusInfoDto.class
 com\egov\ex\mapper\CombDtstMapper.class
 com\egov\ex\service\LabelRsltService.class
 com\egov\ex\entity\UnitDtst.class
@@ -42,6 +43,7 @@ com\egov\ex\mapper\LearnHistoryMapper.class
 com\egov\ex\util\WebUtil.class
 com\egov\ex\entity\ExlprServerInfo.class
 com\egov\ex\entity\LearnHistory.class
+com\egov\ex\entity\LearnStatusInfo.class
 com\egov\ex\dto\Page.class
 com\egov\ex\exception\ModelViewAspect.class
 com\egov\ex\controller\CommonController.class
@@ -75,6 +77,7 @@ com\egov\ex\service\ServerStatusService.class
 com\egov\ex\entity\CmmnCdInfo.class
 com\egov\ex\controller\CmmnCdInfoController.class
 com\egov\ex\dao\UserInfoDao.class
+com\egov\ex\dto\LearnStatusOrgDto.class
 com\egov\ex\controller\PlateImgController.class
 com\egov\ex\entity\IncnImg.class
 com\egov\ex\entity\ScheduleUtil$SchedulerThreadFactory.class
@@ -101,6 +104,7 @@ com\egov\ex\entity\ServerStatus.class
 com\egov\ex\mapper\IncnImgMapper.class
 com\egov\ex\controller\NmrecgSampleInfoController.class
 com\egov\ex\entity\LearnStatus.class
+com\egov\ex\entity\LearnStatusOrg.class
 com\egov\ex\mapper\LearnRsltMapper.class
 com\egov\ex\service\FunctionWithException.class
 com\egov\ex\mapper\AlgoInfoMapper.class

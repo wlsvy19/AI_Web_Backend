@@ -29,4 +29,10 @@ public class UserInfoSaveDto{
 
     @ApiModelProperty(value = "권한등급")
     private String gradCd;
+
+	public int getUserNo() {
+		return userNo;
+	}
+    
+    
 }

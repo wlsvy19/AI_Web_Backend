@@ -23,4 +23,28 @@ public class CombDtstSearchDto extends Page {
 
     private String searchDate;
     private String date;
+    
+	public String getWorkDate() {
+		return workDate;
+	}
+	public String getCombDtstId() {
+		return combDtstId;
+	}
+	public String getCombDtstType() {
+		return combDtstType;
+	}
+	public String getUnitDtstCnt() {
+		return unitDtstCnt;
+	}
+	public String getTotalCnt() {
+		return totalCnt;
+	}
+	public String getSearchDate() {
+		return searchDate;
+	}
+	public String getDate() {
+		return date;
+	}
+    
+    
 }

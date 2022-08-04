@@ -1,55 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egov.ex.mapper.LearnStatusMapper">
-    <select id="selectLearnStatusInfo" resultType="com.egov.ex.entity.LearnStatus">
-        SELECT * FROM t_ails_learn_status
-        WHERE 1 = 1 and work_date = #{workDate}
-            AND learn_dtst_id = #{learnDtstId}
-            AND learn_dtst_type = #{learnDtstType}
-            AND weight_id  = #{weightId}
+	<select id="selectLearnStatusInfo" resultType="com.egov.ex.entity.LearnStatusInfo">
+        SELECT * FROM t_ails_learn_status_info
+        LIMIT 1            
     </select>
-    <insert id="insertLearnStatusInfo">
-        INSERT INTO t_ails_learn_status(
-            work_date
-            , start_dttm
-            , remain_dttm
-            , end_dttm
-            , end_yn
-            , learn_dtst_id
-            , learn_dtst_type
-            , weight_id
-        )
-        SELECT
-            date_format(now(), '%Y-%m-%d') AS work_date
-             , now() AS work_dttm
-             , now() AS start_dttm
-             , null AS end_dttm
-             , 'N' AS end_yn
-             , #{learnDtstId} AS learn_dtst_id
-             , #{learnDtstType} AS learn_dtst_type
-             , #{weightId} AS weight_id
-        WHERE 1 = 1
-            AND NOT EXISTS (
-                SELECT 1 FROM t_ails_learn_status
-                WHERE learn_dtst_id = #{learnDtstId}
-                    AND learn_dtst_type = #{learnDtstType}
-                    AND weight_id = #{weightId}
-            )
-    </insert>
-    <update id="updateStopLearnStatusInfo">
-       update t_ails_learn_status set
-           end_dttm = now(),
-           end_yn = 'Y'
-       WHERE learn_dtst_id = #{learnDtstId}
-            AND learn_dtst_type = #{learnDtstType}
-            AND weight_id = #{weightId}
-    </update>
+    <select id="selectLearnStatus" resultType="com.egov.ex.entity.LearnStatus">
+        SELECT * FROM t_ails_learn_status
+        WHERE training_id = #{trainingId}            
+    </select>    
     <update id="updateStartLearnStatusInfo">
-        update t_ails_learn_status set
-           end_dttm = null,
-           end_yn = 'N'
-        WHERE learn_dtst_id = #{learnDtstId}
-          AND learn_dtst_type = #{learnDtstType}
-          AND weight_id = #{weightId}
+       update t_ails_learn_status_info set
+           training_yn = 'Y',
+           training_id = #{trainingId},
+           engine_type = #{engineType},
+           comb_dtst_id = #{combDtstId},
+           weight_id = #{weightId},
+           want_to_stop = 'N',
+           start_dttm = #{startDttm},
+           remain_time = null,
+           finish_dttm = null,
+           error_msg = ""
+    </update>
+    <update id="updateStopLearnStatusInfo">
+       update t_ails_learn_status_info set           
+           want_to_stop = 'Y'
     </update>
 </mapper>

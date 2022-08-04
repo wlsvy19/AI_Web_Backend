@@ -15,4 +15,20 @@ public class LoginVo {
     @ApiModelProperty(value="비밀번호", required = true, dataType = "String", example = "비번")
     @NotEmpty(message="비밀번호를 입력하세요.")
     private String loginPwd;
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+	public String getLoginPwd() {
+		return loginPwd;
+	}
+
+	public void setLoginPwd(String loginPwd) {
+		this.loginPwd = loginPwd;
+	}
 }

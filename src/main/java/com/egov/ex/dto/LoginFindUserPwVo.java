@@ -7,7 +7,8 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 public class LoginFindUserPwVo {
-    @ApiModelProperty(value="이름", required = true, dataType = "String", example = "홍길동")
+
+	@ApiModelProperty(value="이름", required = true, dataType = "String", example = "홍길동")
     @NotEmpty(message="이름을 입력하세요.")
     private String userNm;
 
@@ -18,4 +19,16 @@ public class LoginFindUserPwVo {
     @ApiModelProperty(value="email", required = true, dataType = "String", example = "aa@aa.com")
     @NotEmpty(message="이메일을 입력하세요.")
     private String email;
+    
+    public String getUserNm() {
+		return userNm;
+	}
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
 }

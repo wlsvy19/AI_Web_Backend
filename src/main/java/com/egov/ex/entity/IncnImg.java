@@ -1,7 +1,5 @@
 package com.egov.ex.entity;
 
-import java.time.LocalDate;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -28,7 +26,11 @@ public class IncnImg {
     @ApiModelProperty(value = "생성순번")
     private String workNo;
 
-    private String labelType;
+    public byte[] getImgData() {
+		return imgData;
+	}
+
+	private String labelType;
 
     @ApiModelProperty(value = "파일명")
     private String fileNm;
