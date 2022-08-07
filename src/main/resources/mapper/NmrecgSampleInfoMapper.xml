@@ -3,8 +3,9 @@
 <mapper namespace="com.egov.ex.mapper.NmrecgSampleInfoMapper">
     <select id="selectNmrecgSampleInfoDataByCmmnCd" resultType="com.egov.ex.entity.NmrecgSampleInfo">
         SELECT *
-        FROM t_ails_nmrecg_sample_info A
+        FROM t_ails_sample_info A
         WHERE 1 = 1
+            AND A.grp_cd = #{grpCd}
             AND A.cmmn_cd = #{cmmnCd}
         ORDER BY cmmn_cd
         LIMIT 1

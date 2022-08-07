@@ -33,10 +33,11 @@ public class NmrecgSampleInfoController {
 
     }
 
-    @GetMapping(value = "/api/nmrecg-sample-info/data", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/api/sample-info/data", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] nmrecgSampleInfoData(NmrecGSampleSearchDto param) throws Exception {
         NmrecgSampleInfo info = nmrecgSampleInfoService.selectNmrecgSampleInfoDataByCmmnCd(param);
-        return Base64.getDecoder().decode(info.getImgData().getBytes());
+//        return Base64.getDecoder().decode(info.getImgData().getBytes());
+        return info.getImgData();
     }
 }
