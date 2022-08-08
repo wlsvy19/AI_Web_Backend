@@ -12,6 +12,7 @@
     <update id="updateStartLearnStatusInfo">
        update t_ails_learn_status_info set
            training_yn = 'Y',
+           training_step = 1,
            training_id = #{trainingId},
            engine_type = #{engineType},
            comb_dtst_id = #{combDtstId},
@@ -24,6 +25,13 @@
     </update>
     <update id="updateStopLearnStatusInfo">
        update t_ails_learn_status_info set           
-           want_to_stop = 'Y'
+           want_to_stop = 'Y',
+           progress=0
+    </update>
+    <update id="updateCompleteLearnStatusInfo">
+       update t_ails_learn_status_info set           
+           training_yn = 'N',
+           training_step = 0,
+           progress=0
     </update>
 </mapper>

@@ -29,4 +29,6 @@ public interface LearnStatusMapper {
     int updateStartLearnStatusInfo(LearnStatusInfoDto param);
     
     int updateStopLearnStatusInfo();
+    
+    int updateCompleteLearnStatusInfo();
 }

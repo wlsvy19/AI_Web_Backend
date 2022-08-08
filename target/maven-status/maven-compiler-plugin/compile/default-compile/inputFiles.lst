@@ -57,7 +57,6 @@ C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\j
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\util\CookieUtils.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\CmmnCdInfoController.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\NmrecgClsfDto.java
-C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\LearnStatusOrg.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\exception\ModelViewAspect.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LabelRsltSaveDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\service\CmmnCdInfoService.java
@@ -78,7 +77,6 @@ C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\j
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\service\CombDtstService.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\entity\CrgwImg.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\CommonController.java
-C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LearnStatusOrgDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\util\FileUtil.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\dto\LearnHisSearchDto.java
 C:\eclipse_program\eGovFrameDev-3.10.0-64bit\workspace\AI_Web_Backend\src\main\java\com\egov\ex\controller\AlgoInfoController.java

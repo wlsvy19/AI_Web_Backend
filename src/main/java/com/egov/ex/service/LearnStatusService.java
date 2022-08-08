@@ -43,4 +43,8 @@ public class LearnStatusService extends EgovAbstractServiceImpl {
     public int updateStopLearnStatusInfo() {
         return learnStatusMapper.updateStopLearnStatusInfo();
     }
+    
+    public int updateCompeleteLearnStatusInfo() {
+        return learnStatusMapper.updateCompleteLearnStatusInfo();
+    }
 }

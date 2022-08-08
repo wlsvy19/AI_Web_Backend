@@ -51,12 +51,11 @@ public class LearnStatusController {
     @ApiOperation("학습진행에서 현재 날짜 기준 학습하기")
     @PostMapping("/api/learn-status/data/start")
     public AjaxResp startStudy(@RequestBody LearnStatusInfoDto param) throws Exception {
-        if(StringUtils.isEmpty(param.getCombDtstId())) return AjaxResp.error("NULL_VALUE", "데이터셋 ID를 입력하세요.");
-        if(StringUtils.isEmpty(param.getWeightId())) return AjaxResp.error("NULL_VALUE", "가중치를 입력하세요.");
-        if(StringUtils.isEmpty(param.getEngineType())) return AjaxResp.error("NULL_VALUE", "데이터쏏 유형을 입력하세요.");
-     
-        learnStatusService.updateStartLearnStatusInfo(param);
-        return AjaxResp.success();
+        if(StringUtils.isEmpty(param.getCombDtstId())) return AjaxResp.error("NULL_VALUE", "데이터셋 ID를 입력하세요.");        
+        if(StringUtils.isEmpty(param.getEngineType())) return AjaxResp.error("NULL_VALUE", "데이터쏏 유형을 입력하세요.");        
+        
+        int data = learnStatusService.updateStartLearnStatusInfo(param);
+        return AjaxResp.success(data);
     }
     
     @ApiOperation("학습진행중 정보")
@@ -68,9 +67,15 @@ public class LearnStatusController {
     
     @ApiOperation("학습진행 멈추기")
     @PostMapping("/api/learn-status/data/stop")
-    public AjaxResp stopStudy() throws Exception {
-        learnStatusService.updateStopLearnStatusInfo();
-        return AjaxResp.success();
+    public AjaxResp stopStudy(@RequestBody LearnStatusInfoDto param) throws Exception {
+    	int data = learnStatusService.updateStopLearnStatusInfo();
+        return AjaxResp.success(data);
     }
-
+    
+    @ApiOperation("학습 온료")
+    @PostMapping("/api/learn-status/data/complete")
+    public AjaxResp completeStudy() throws Exception {
+    	int data = learnStatusService.updateCompeleteLearnStatusInfo();
+        return AjaxResp.success(data);
+    }
 }
