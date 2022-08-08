@@ -20,14 +20,21 @@ public class NmrecgSampleInfo {
 
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "그룹코드")
+    private String grpCd;
+    
     @ApiModelProperty(value = "유형코드")
     private String cmmnCd;
 
-    public String getImgData() {
+    public byte[] getImgData() {
 		return imgData;
 	}
 
-	@ApiModelProperty(value = "img data")
-    private String imgData;
+//	@ApiModelProperty(value = "img data")
+//    private String imgData;
+		
+    @ApiModelProperty(value = "파일Blob")
+    private byte[] imgData;
+	
 
 }
