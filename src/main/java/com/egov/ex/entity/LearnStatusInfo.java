@@ -27,6 +27,9 @@ public class LearnStatusInfo {
     @ApiModelProperty(value = "트레이닝 ID")
     private String trainingId;
 
+    @ApiModelProperty(value = "학습 단계별 진행 상황")
+    private int progress;
+    
     @ApiModelProperty(value = "엔진 종류")
     private String engineType;
     
@@ -93,6 +96,10 @@ public class LearnStatusInfo {
 
 	public String getErrorMsg() {
 		return errorMsg;
+	}
+
+	public int getProgress() {
+		return progress;
 	}
 
 }

@@ -16,7 +16,9 @@ public class LearnStatusInfoDto {
     private int trainingStep;
 
     private String trainingId;
-
+    
+    private int progress;
+    
     private String engineType;
     
     private String combDtstId;
@@ -75,6 +77,10 @@ public class LearnStatusInfoDto {
 
 	public String getErrorMsg() {
 		return errorMsg;
+	}
+
+	public int getProgress() {
+		return progress;
 	}
     
     

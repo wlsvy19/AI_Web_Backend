@@ -77,7 +77,6 @@ com\egov\ex\service\ServerStatusService.class
 com\egov\ex\entity\CmmnCdInfo.class
 com\egov\ex\controller\CmmnCdInfoController.class
 com\egov\ex\dao\UserInfoDao.class
-com\egov\ex\dto\LearnStatusOrgDto.class
 com\egov\ex\controller\PlateImgController.class
 com\egov\ex\entity\IncnImg.class
 com\egov\ex\entity\ScheduleUtil$SchedulerThreadFactory.class
@@ -104,7 +103,6 @@ com\egov\ex\entity\ServerStatus.class
 com\egov\ex\mapper\IncnImgMapper.class
 com\egov\ex\controller\NmrecgSampleInfoController.class
 com\egov\ex\entity\LearnStatus.class
-com\egov\ex\entity\LearnStatusOrg.class
 com\egov\ex\mapper\LearnRsltMapper.class
 com\egov\ex\service\FunctionWithException.class
 com\egov\ex\mapper\AlgoInfoMapper.class

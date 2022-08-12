@@ -11,6 +11,23 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class CrgwImgSearchData {
 	private String workDate;
-    private String workNo;
+    
+	private String workNo;
 
+	public String getWorkDate() {
+		return workDate;
+	}
+
+	public void setWorkDate(String workDate) {
+		this.workDate = workDate;
+	}
+
+	public String getWorkNo() {
+		return workNo;
+	}
+
+	public void setWorkNo(String workNo) {
+		this.workNo = workNo;
+	}
+	
 }
