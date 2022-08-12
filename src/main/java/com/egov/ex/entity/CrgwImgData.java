@@ -71,5 +71,73 @@ public class CrgwImgData {
     @ApiModelProperty(value = "삭제여부")
     private String delYn;
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
+	public String getWorkDate() {
+		return workDate;
+	}
+
+	public String getWorkNo() {
+		return workNo;
+	}
+
+	public String getShootDttm() {
+		return shootDttm;
+	}
+
+	public String getTolofNm() {
+		return tolofNm;
+	}
+
+	public String getCrgwNo() {
+		return crgwNo;
+	}
+
+	public String getCrgwVhno() {
+		return crgwVhno;
+	}
+
+	public String getRpcsVhno() {
+		return rpcsVhno;
+	}
+
+	public String getNmrecgCd() {
+		return nmrecgCd;
+	}
+
+	public String getDtrmNmrecgCd() {
+		return dtrmNmrecgCd;
+	}
+
+	public String getLabelDataText() {
+		return labelDataText;
+	}
+
+	public String getDtrmYn() {
+		return dtrmYn;
+	}
+
+	public String getDtrmDttm() {
+		return dtrmDttm;
+	}
+
+	public String getProsYn() {
+		return prosYn;
+	}
+
+	public String getProsDttm() {
+		return prosDttm;
+	}
+
+	public String getImageData() {
+		return imageData;
+	}
+
+	public String getDelYn() {
+		return delYn;
+	}
+
+    
 }
