@@ -1,5 +1,6 @@
 package com.egov.ex.service;
 
+import com.egov.ex.dto.CrgwImgDataSaveData;
 import com.egov.ex.dto.LabelRsltSaveDto;
 import com.egov.ex.entity.LabelRslt;
 import com.egov.ex.mapper.LabelRsltMapper;
@@ -32,4 +33,9 @@ public class LabelRsltService extends EgovAbstractServiceImpl {
     public LabelRslt selectLabelRsltById(LabelRslt param) {
         return labelRsltMapper.selectLabelRsltById(param);
     }
+
+	public void updateLabelRsltDel(LabelRslt param) {
+		labelRsltMapper.updateLabelRsltDel(param);
+	}
+
 }

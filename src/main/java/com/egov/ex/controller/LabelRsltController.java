@@ -2,6 +2,7 @@ package com.egov.ex.controller;
 
 
 import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.CrgwImgDataSaveData;
 import com.egov.ex.dto.LabelRsltSaveDto;
 import com.egov.ex.dto.LearnStatusDto;
 import com.egov.ex.entity.LabelRslt;
@@ -41,6 +42,12 @@ public class LabelRsltController {
     public AjaxResp rsltDataSave(@RequestBody LabelRslt param) throws Exception {
         int r = labelRsltService.updateLabelRslt(param);
         if (r == 0) labelRsltService.insertLabelRslt(param);
+        return AjaxResp.success();
+    }
+    
+    @PostMapping(value="/api/label-rslt/data/del")
+    public AjaxResp rsltDataDel(@RequestBody LabelRslt param) throws Exception {
+    	labelRsltService.updateLabelRsltDel(param);
         return AjaxResp.success();
     }
 }

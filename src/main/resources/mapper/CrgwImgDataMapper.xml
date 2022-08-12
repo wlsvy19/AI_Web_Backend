@@ -34,6 +34,7 @@
             AND A.work_date = #{searchDate}
         </if>
 			AND IFNULL(A.pros_yn, 'N') = 'N'
+			AND IFNULL(A.del_yn, 'N') = 'N'
 		ORDER BY
 			A.work_date,
 			A.work_no
@@ -87,6 +88,8 @@
         <if test='pageType == "빛"'>
             AND A.label_type IN ('F')
         </if>
+        	AND IFNULL(A.pros_yn, 'N') = 'N'
+			AND IFNULL(A.del_yn, 'N') = 'N'
         ORDER BY A.work_date, A.work_no
     </select>
     
