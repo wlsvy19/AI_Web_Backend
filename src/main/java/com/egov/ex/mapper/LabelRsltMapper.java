@@ -20,4 +20,6 @@ public interface LabelRsltMapper  {
     int updateLabelRslt(LabelRslt param);
 
     LabelRslt selectLabelRsltById(LabelRslt param);
+
+    void updateLabelRsltDel(LabelRslt param);
 }
