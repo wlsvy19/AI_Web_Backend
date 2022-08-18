@@ -24,6 +24,9 @@ public class Dashboard {
     @ApiModelProperty(value = "생성일자")
     private String workDate;
 
+    @ApiModelProperty(value = "미오인식유형")
+    private String nmrecgNm;
+    
     @ApiModelProperty(value = "미오인식유형분류건수")
     private Integer nmrecgCnt;
 

@@ -1,7 +1,12 @@
 package com.egov.ex.mapper;
-import com.egov.ex.entity.Dashboard;
-import egovframework.rte.psl.dataaccess.mapper.Mapper;
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
+
+import com.egov.ex.entity.Dashboard;
+
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 ;
 
 /**
@@ -17,4 +22,6 @@ import org.springframework.stereotype.Repository;
 public interface DashboardMapper  {
 
     Dashboard selectDashboardByTerm();
+    
+    List<HashMap> selectNmrecg();
 }

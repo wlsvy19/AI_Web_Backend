@@ -1,11 +1,16 @@
 package com.egov.ex.service;
 
-import com.egov.ex.entity.Dashboard;
-import com.egov.ex.mapper.DashboardMapper;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import org.springframework.stereotype.Service;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.egov.ex.entity.Dashboard;
+import com.egov.ex.mapper.DashboardMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -23,4 +28,8 @@ public class DashboardService extends EgovAbstractServiceImpl {
     public Dashboard selectDashboardByTerm() {
        return dashboardMapper.selectDashboardByTerm();
     }
+    
+    public List<HashMap> selectNmrecg() {
+        return dashboardMapper.selectNmrecg();
+     }
 }

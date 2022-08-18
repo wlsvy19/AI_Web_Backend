@@ -16,4 +16,20 @@
            AND DATE_FORMAT(WORK_DATE, '%Y%m%d')  >= '20010101'
            AND DATE_FORMAT(WORK_DATE, '%Y%m%d')  &lt;= '20221001'
     </select>
+    
+    <select id="selectNmrecg" resultType="java.util.HashMap">
+		SELECT B.cmmn_cd_nm AS NMRECG_NM,
+		       count(1) AS CNT,
+		       ROUND(
+		            ROUND((count(1) / (SELECT count(*) FROM t_ails_nmrecg_clsf)), 2)
+		          * (SELECT ROUND(DATA_LENGTH / (1024 * 1024 * 1024), 2) AS DATA
+		             FROM INFORMATION_SCHEMA.TABLES
+		             WHERE TABLE_NAME = 't_ails_crgw_img'),
+		          2) AS SIZE
+		FROM t_ails_nmrecg_clsf A, t_ails_cmmn_cd_info B
+		WHERE     IF(A.nmrecg_cd = 'TR', 'NM', A.nmrecg_cd) = B.cmmn_cd
+		      AND B.grp_cd = 'NMRECG_CD'
+		GROUP BY A.nmrecg_cd
+		ORDER BY B.inqy_ord
+    </select>
 </mapper>
