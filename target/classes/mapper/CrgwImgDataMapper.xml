@@ -76,6 +76,7 @@
 <!--           </if> -->
             /*AND ifnull(A.pros_yn,'N') = 'N'*/
             /*AND A.pros_dttm is null*/
+            AND A.dtrm_yn = 'N'
         <if test='pageType == "번호판"'>
             AND A.label_type = 'A'
         </if>
