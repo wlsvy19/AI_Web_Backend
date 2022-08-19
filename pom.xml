@@ -17,7 +17,7 @@
 
     <properties>
         <java.v>1.8</java.v>
-        <lombok.v>1.18.10</lombok.v>
+        <lombok.v>1.18.20</lombok.v>
         <spring.v>2.3.4.RELEASE</spring.v>
         <mybatis.v>2.1.3</mybatis.v>
         <elastic.v>7.6.2</elastic.v>
