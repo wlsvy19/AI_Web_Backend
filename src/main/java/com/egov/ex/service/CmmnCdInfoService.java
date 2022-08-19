@@ -1,7 +1,15 @@
 package com.egov.ex.service;
 
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
+import com.egov.ex.entity.CmmnCdInfo;
+import com.egov.ex.mapper.CmmnCdInfoMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -13,5 +21,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CmmnCdInfoService extends EgovAbstractServiceImpl {
-
+	@Resource
+	private CmmnCdInfoMapper cmmnCdInfoMapper;
+	
+    public List<CmmnCdInfo> selectCmmnCdList(String grpCd) {
+        return cmmnCdInfoMapper.selectCmmnCdList(grpCd);
+     }
 }

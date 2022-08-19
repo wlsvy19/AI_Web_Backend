@@ -1,31 +1,22 @@
 package com.egov.ex.controller;
 
 
-import com.egov.ex.dto.AjaxResp;
-import com.egov.ex.dto.CombDtstSearchDto;
-import com.egov.ex.dto.CrgwImgSearchData;
-import com.egov.ex.entity.Dashboard;
-import com.egov.ex.service.CrgwImgService;
-import com.egov.ex.entity.CrgwImg;
-import com.mysql.cj.util.Base64Decoder;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.apache.commons.io.IOUtils;
-import org.apache.tomcat.jni.FileInfo;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import sun.misc.BASE64Decoder;
+import java.util.List;
 
 import javax.annotation.Resource;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Blob;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.CrgwImgSearchData;
+import com.egov.ex.entity.CrgwImg;
+import com.egov.ex.service.CrgwImgService;
+
+import io.swagger.annotations.Api;
 
 /**
  * <p>
