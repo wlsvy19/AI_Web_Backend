@@ -14,6 +14,7 @@
            training_yn = 'Y',
            training_step = 1,
            training_id = #{trainingId},
+           progress=0,
            engine_type = #{engineType},
            comb_dtst_id = #{combDtstId},
            weight_id = #{weightId},
