@@ -15,7 +15,6 @@ import org.apache.tomcat.jni.FileInfo;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
 import java.io.*;
