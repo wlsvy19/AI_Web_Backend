@@ -58,4 +58,13 @@ public class CmmnCdInfo {
     @ApiModelProperty(value = "코드상세")
     private String cmmnDesc;
 
+	public String getCmmnCd() {
+		return cmmnCd;
+	}
+
+	public String getCmmnCdNm() {
+		return cmmnCdNm;
+	}
+    
+    
 }
