@@ -71,12 +71,6 @@
              , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data
         FROM t_ails_label_rslt A
         WHERE 1 = 1
-<!--           <if test="nmrecgCd != null and nmrecgCd != ''"> -->
-<!--           AND A.nmrecg_cd = #{nmrecgCd} -->
-<!--           </if> -->
-            /*AND ifnull(A.pros_yn,'N') = 'N'*/
-            /*AND A.pros_dttm is null*/
-            AND A.dtrm_yn = 'N'
         <if test='pageType == "번호판"'>
             AND A.label_type = 'A'
         </if>
@@ -90,7 +84,8 @@
             AND A.label_type IN ('F')
         </if>
         	AND IFNULL(A.pros_yn, 'N') = 'N'
-			AND IFNULL(A.del_yn, 'N') = 'N'
+        	AND IFNULL(A.del_yn, 'N') = 'N'
+        	AND IFNULL(A.dtrm_yn, 'N') = 'N'
         ORDER BY A.work_date, A.work_no
     </select>
     
