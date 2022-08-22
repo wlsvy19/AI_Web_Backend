@@ -12,6 +12,9 @@
         </if>
         <if test="combDtstType!=null and combDtstType!=''">
             AND A.learn_dtst_type = #{combDtstType}
+<!--             ORDER BY A.${ordfield} ${order} -->
+        </if>
+        <if test="ordfield!=null and ordfield!=''">
             ORDER BY A.${ordfield} ${order}
         </if>
     </select>

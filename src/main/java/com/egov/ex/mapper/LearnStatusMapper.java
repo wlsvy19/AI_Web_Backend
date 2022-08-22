@@ -26,7 +26,7 @@ public interface LearnStatusMapper {
 	
     List<LearnStatus> selectLearnStatus(LearnStatusDto param);
 
-    int updateStartLearnStatusInfo(LearnStatusInfoDto param);
+	int updateStartLearnStatusInfo(LearnStatusInfoDto param);
     
     int updateStopLearnStatusInfo();
     
