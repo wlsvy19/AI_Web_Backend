@@ -8,8 +8,9 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class DatasetUnitDataDto {
+public class DatasetStatusDto {
    private String name; // 문자,숫자,꺽임 ..
-   private int unitCnt; // 단위데이터셋 cnt
-   private int allCnt; // 통합데이터셋 cnt
+   
+   private int unitDatasetCnt;
+   private int combDatasetCnt;
 }

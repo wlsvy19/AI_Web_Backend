@@ -8,8 +8,8 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class DatasetLabelDataDto {
+public class LabelDtrmStatusDto {
    private String name;
-   private int confirmDataCnt; // 확정데이터
-   private int allDataCnt; // 총데이터
+   private int confirmDataCnt; // 확정데이터수
+   private int stdDatasetCnt; // 기준데이터수
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.DatasetDataMapper">
+
+    <select id="getLabelDataCnt" resultType="java.util.HashMap">
+		SELECT A.cmmn_cd_nm AS name,
+		       IFNULL(B.confirmDataCnt, 0) AS confirmDataCnt,
+		       B.stdDatasetCnt
+		FROM t_ails_cmmn_cd_info A
+		     LEFT OUTER JOIN (SELECT label_type,
+		                             count(*)
+		                                AS confirmDataCnt,
+		                             (SELECT cmmn_cd
+		                              FROM t_ails_cmmn_cd_info
+		                              WHERE grp_cd = 'STD_DTST_CNT')
+		                                AS stdDatasetCnt
+		                      FROM t_ails_label_rslt
+		                      GROUP BY label_type) B
+		        ON A.cmmn_cd = B.label_type
+		WHERE A.grp_cd = 'NGTP'
+		ORDER BY A.cmmn_cd 
+    </select>
+    
+    <select id="getDatasetDataCnt" resultType="java.util.HashMap">
+		SELECT AA.name,
+		       SUM(AA.unitDatasetCnt) AS unitDatasetCnt,
+		       SUM(AA.combDatasetCnt) AS combDatasetCnt
+		FROM (SELECT A.cmmn_cd,
+		             A.cmmn_cd_nm AS name,
+		             IFNULL(B.unitDatasetCnt, 0) AS unitDatasetCnt,
+		             0 AS combDatasetCnt
+		      FROM t_ails_cmmn_cd_info A
+		           LEFT OUTER JOIN
+		           (SELECT unit_dtst_type AS label_type,
+		                   sum(total_cnt) AS unitDatasetCnt
+		            FROM t_ails_unit_dtst
+		            GROUP BY unit_dtst_type) B
+		              ON A.cmmn_cd = B.label_type
+		      WHERE A.grp_cd = 'NGTP'
+		      UNION
+		      SELECT A.cmmn_cd,
+		             A.cmmn_cd_nm AS name,
+		             0 AS unitDatasetCnt,
+		             IFNULL(B.combDatasetCnt, 0) AS combDatasetCnt
+		      FROM t_ails_cmmn_cd_info A
+		           LEFT OUTER JOIN
+		           (SELECT comb_dtst_type AS label_type,
+		                   sum(total_cnt) AS combDatasetCnt
+		            FROM t_ails_comb_dtst
+		            GROUP BY comb_dtst_type) B
+		              ON A.cmmn_cd = B.label_type
+		      WHERE A.grp_cd = 'NGTP') AA
+		GROUP BY AA.name
+		ORDER BY AA.cmmn_cd 
+    </select>
+    
+</mapper>
