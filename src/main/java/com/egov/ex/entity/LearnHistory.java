@@ -20,11 +20,8 @@ public class LearnHistory  {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "생성일자")
-    private String workDate;
-
-    @ApiModelProperty(value = "생성일시")
-    private String workDttm;
+    @ApiModelProperty(value = "트레이닝 ID")
+    private String trainingId;
 
     @ApiModelProperty(value = "학습시작시간")
     private String startDttm;
@@ -54,14 +51,10 @@ public class LearnHistory  {
 		return serialVersionUID;
 	}
 
-	public String getWorkDate() {
-		return workDate;
+	public String getTrainingId() {
+		return trainingId;
 	}
-
-	public String getWorkDttm() {
-		return workDttm;
-	}
-
+	
 	public String getStartDttm() {
 		return startDttm;
 	}
