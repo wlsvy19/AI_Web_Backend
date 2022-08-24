@@ -1,6 +1,7 @@
 package com.egov.ex.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -58,10 +59,14 @@ public class UnitDtstController {
     @PostMapping("/api/updt/list")
     public AjaxResp updtList(@RequestBody ExlprServerInfoSearchDto param) throws Exception {
         PageUtil.startPage(param);
-        List<ExlprServerInfo> list = unitDtstService.updtList(param);
+        List<ExlprServerInfo> list = unitDtstService.updtList(param);        
         return AjaxResp.success(PageUtil.of(list));
     }
 
-
+    @PostMapping("/api/updt/hdqr/list")
+    public AjaxResp hdqrList() throws Exception {        
+    	List<HashMap> list = unitDtstService.hdqrList(); 
+        return AjaxResp.success(list);
+    }
 
 }
