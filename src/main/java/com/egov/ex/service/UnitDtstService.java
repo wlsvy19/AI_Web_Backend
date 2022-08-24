@@ -1,15 +1,19 @@
 package com.egov.ex.service;
 
+import java.util.HashMap;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.egov.ex.dto.ExlprServerInfoSearchDto;
 import com.egov.ex.dto.UnitDtstSearchDto;
 import com.egov.ex.entity.ExlprServerInfo;
 import com.egov.ex.entity.UnitDtst;
 import com.egov.ex.mapper.UnitDtstMapper;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -34,5 +38,9 @@ public class UnitDtstService extends EgovAbstractServiceImpl {
 
 	public List<UnitDtst> selectUnitDtstListById(UnitDtstSearchDto param) {
 		return unitDtstMapper.selectUnitDtstListById(param);
+	}
+	
+	public List<HashMap> hdqrList() {
+		return unitDtstMapper.hdqrList();
 	}
 }

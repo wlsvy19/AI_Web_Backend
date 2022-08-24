@@ -38,7 +38,7 @@ public class LearnHistoryController {
 
     @ApiOperation("학습 이력")
     @PostMapping("/api/learn-history/list")
-    public AjaxResp serverStatus(@RequestBody LearnHisSearchDto param) throws Exception {
+    public AjaxResp serverStatus(@RequestBody LearnHisSearchDto param) throws Exception {    	
         PageUtil.startPage(param);
         List<LearnHistory> list = learnHistoryService.selectLearnHistoryListPage(param);
         return AjaxResp.success(PageUtil.of(list));

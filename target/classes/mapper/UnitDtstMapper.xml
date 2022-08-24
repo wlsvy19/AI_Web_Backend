@@ -19,9 +19,15 @@
     <select id="updtList" resultType="com.egov.ex.entity.ExlprServerInfo">
        select * from t_ails_exlpr_server_info
        where 1 = 1
-       <if test="hdqrNm!=null">
+       <if test="hdqrNm!=null and hdqrNm!=''">
           and hdqr_nm =  #{hdqrNm}
        </if>
-       order by exlpr_num
-    </select>
+       order by vm_nm
+    </select>    
+    
+    <select id="hdqrList" resultType="java.util.HashMap">
+       select hdqr_nm from t_ails_exlpr_server_info 
+       GROUP BY(hdqr_nm)
+       order by vm_nm;
+    </select>    
 </mapper>

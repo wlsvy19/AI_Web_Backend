@@ -1,8 +1,5 @@
 package com.egov.ex.entity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -23,11 +20,8 @@ public class LearnHistory  {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "생성일자")
-    private String workDate;
-
-    @ApiModelProperty(value = "생성일시")
-    private String workDttm;
+    @ApiModelProperty(value = "트레이닝 ID")
+    private String trainingId;
 
     @ApiModelProperty(value = "학습시작시간")
     private String startDttm;
@@ -50,5 +44,48 @@ public class LearnHistory  {
     @ApiModelProperty(value = "mAP")
     private String map;
 
+    @ApiModelProperty(value = "Best가중치")
+    private String bestWeight;
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getTrainingId() {
+		return trainingId;
+	}
+	
+	public String getStartDttm() {
+		return startDttm;
+	}
+
+	public String getEndDttm() {
+		return endDttm;
+	}
+
+	public String getLearnDtstId() {
+		return learnDtstId;
+	}
+
+	public String getLearnDtstType() {
+		return learnDtstType;
+	}
+
+	public Integer getLearnDtstCnt() {
+		return learnDtstCnt;
+	}
+
+	public String getBaseWeight() {
+		return baseWeight;
+	}
+
+	public String getMap() {
+		return map;
+	}
+
+	public String getBestWeight() {
+		return bestWeight;
+	}
+    
+    
 }
