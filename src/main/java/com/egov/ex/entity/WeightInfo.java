@@ -38,6 +38,31 @@ public class WeightInfo {
     @ApiModelProperty(value = "배치수")
     private Integer itertaionNo;
 
+    @ApiModelProperty(value = "파일경로")
+    private String filePath;
 
+	public String getWorkDate() {
+		return workDate;
+	}
 
+	public String getWorkDttm() {
+		return workDttm;
+	}
+
+	public String getWeightId() {
+		return weightId;
+	}
+
+	public String getWeightType() {
+		return weightType;
+	}
+
+	public Integer getItertaionNo() {
+		return itertaionNo;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+        
 }

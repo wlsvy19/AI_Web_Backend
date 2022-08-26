@@ -20,6 +20,7 @@ import com.egov.ex.service.UnitDtstService;
 import com.egov.ex.util.PageUtil;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>
@@ -42,6 +43,7 @@ public class UnitDtstController {
 
     }
 
+    @ApiOperation("단위 데이터셋 리스트")
     @PostMapping("/api/unit-dtst/list")
     public AjaxResp list(@RequestBody UnitDtstSearchDto param) throws Exception {
     	PageUtil.startPage(param);

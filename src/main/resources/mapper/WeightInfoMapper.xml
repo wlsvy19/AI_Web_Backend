@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egov.ex.mapper.WeightInfoMapper">
-    <select id="selectWeightInfoList" resultType="com.egov.ex.entity.WeightInfo">
-        SELECT (SELECT B.cmmn_cd_nm FROM t_ails_cmmn_cd_info B WHERE A.weight_type = B.cmmn_cd AND B.grp_cd = 'NGTP') as weight_type
-               , A.weight_id 
-               , A.work_date 
-        FROM t_ails_weight_info A
+    <select id="selectWeightInfoListByPage" resultType="com.egov.ex.entity.WeightInfo">        
+        SELECT work_date, weight_id, weight_type, file_path 
+        FROM t_ails_weight_info
         WHERE 1 = 1
-          <if test="weightType != 'ALL'">
-              AND WEIGHT_TYPE = #{weightType}
-          </if>
+        <if test="pageType == '미오인식'">
+            AND( 
+	            weight_type = 'E'
+	            OR weight_type = 'F'
+            )
+        </if>
+        <if test="pageType == '번호판'">
+            AND weight_type = 'A'
+        </if>
+        <if test="pageType == '차량번호'">
+            AND (
+	             weight_type = 'B'
+	            OR weight_type = 'C'
+	            OR weight_type = 'D'
+            )
+        </if>
+        AND is_delete = 'N'
+        ORDER BY work_date DESC
     </select>
+    
+    <select id="selectWeightInfoListByWeightType" resultType="com.egov.ex.entity.WeightInfo">
+	    SELECT (SELECT B.cmmn_cd_nm FROM t_ails_cmmn_cd_info B WHERE A.weight_type = B.cmmn_cd AND B.grp_cd = 'NGTP') as weight_type
+	           , A.weight_id
+	           , A.iteration_no 
+	    FROM t_ails_weight_info A	    
+        WHERE 1 = 1
+	    <if test="weightType != null">
+	        AND A. weight_type = #{weightType}	        
+	    </if>	    
+	    AND is_delete = 'N'
+	    ORDER BY work_date DESC
+	</select>
+	
+    <update id="deleteWeightInfoByID">
+        UPDATE t_ails_weight_info SET is_delete='Y' WHERE weight_id=#{weightId}
+    </update>
 </mapper>

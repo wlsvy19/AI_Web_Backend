@@ -35,6 +35,18 @@
        WHERE 1 = 1
            AND work_date = #{workDate}
            AND work_no = #{workNo}
+        <if test='pageType == "번호판"'>
+            AND label_type = 'A'
+        </if>
+        <if test='pageType == "차량번호"'>
+            AND label_type IN ('B','C','D')
+        </if>
+        <if test='pageType == "꺾임"'>
+            AND label_type IN ('E')
+        </if>
+        <if test='pageType == "빛"'>
+            AND label_type IN ('F')
+        </if>
     </update>
     
     <select id="selectLabelRsltById" resultType="com.egov.ex.entity.LabelRslt">

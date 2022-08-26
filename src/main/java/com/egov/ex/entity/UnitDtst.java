@@ -1,7 +1,5 @@
 package com.egov.ex.entity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -52,4 +50,44 @@ public class UnitDtst  {
     @ApiModelProperty(value = "검증일시")
     private String dtrmDttm;
 
+	public String getWorkDate() {
+		return workDate;
+	}
+
+	public String getWorkDttm() {
+		return workDttm;
+	}
+
+	public String getUnitDtstId() {
+		return unitDtstId;
+	}
+
+	public String getUnitDtstType() {
+		return unitDtstType;
+	}
+
+	public Integer getTotalCnt() {
+		return totalCnt;
+	}
+
+	public String getCombDtstInclYn() {
+		return combDtstInclYn;
+	}
+
+	public String getCombDtstInclDttm() {
+		return combDtstInclDttm;
+	}
+
+	public String getCombDtstId() {
+		return combDtstId;
+	}
+
+	public String getDtrmYn() {
+		return dtrmYn;
+	}
+
+	public String getDtrmDttm() {
+		return dtrmDttm;
+	}
+    
 }

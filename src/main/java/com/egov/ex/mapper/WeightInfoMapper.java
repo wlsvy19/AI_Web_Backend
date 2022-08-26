@@ -18,5 +18,9 @@ import java.util.List;
 @Repository
 public interface WeightInfoMapper {
 
-    List<WeightInfo> selectWeightInfoList(WeightSearchDto param);
+    List<WeightInfo> selectWeightInfoListByPage(WeightSearchDto param);
+    
+    List<WeightInfo> selectWeightInfoListByWeightType(WeightSearchDto param);
+    
+    int deleteWeightInfoByID(WeightSearchDto param);
 }

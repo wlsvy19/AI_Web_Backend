@@ -9,6 +9,7 @@ import com.egov.ex.service.WeightInfoService;
 import com.egov.ex.util.AppConfig;
 import com.egov.ex.util.CookieUtils;
 import com.egov.ex.util.PageUtil;
+import com.egov.ex.util.FileUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -42,8 +43,22 @@ public class WeightInfoController {
     @ApiOperation("가중치 리스트")
     @PostMapping("/api/weight-info/list")
     public AjaxResp weightInfoList(@RequestBody WeightSearchDto param) throws Exception {
-        List<WeightInfo> list = weightInfoService.selectWeightInfoList(param);
-        return AjaxResp.success(list);
+    	PageUtil.startPage(param);
+    	if (param.getPageType() != null) {
+    		List<WeightInfo> list = weightInfoService.selectWeightInfoListByPage(param);
+    		return AjaxResp.success(PageUtil.of(list));
+    	}
+    	else {
+    		List<WeightInfo> list = weightInfoService.selectWeightInfoListByWeightType(param);
+    		return AjaxResp.success(PageUtil.of(list));
+    	}    	       
+    }
+    
+    @ApiOperation("가중치 삭제")
+    @PostMapping("/api/weight-info/delete")
+    public AjaxResp deleteWeightInfo(@RequestBody WeightSearchDto param) throws Exception {
+		int data = weightInfoService.deleteWeightInfoByID(param);		
+		return AjaxResp.success(data);			    	       
     }
 
 }

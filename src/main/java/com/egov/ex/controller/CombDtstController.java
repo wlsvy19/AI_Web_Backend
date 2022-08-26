@@ -63,7 +63,8 @@ public class CombDtstController {
     
     @PostMapping("/api/comb-dtst/learn/list")
     public AjaxResp crgwListLean(@RequestBody CombDtstSearchDto param) throws IOException, NoSuchAlgorithmException {
+    	PageUtil.startPage(param);
         List<CombDtst> list = combDtstService.selectDtstLearnList(param);
-        return AjaxResp.success(list);
+        return AjaxResp.success(PageUtil.of(list));
     }
 }
