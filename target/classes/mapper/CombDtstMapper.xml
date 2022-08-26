@@ -14,7 +14,8 @@
 		SELECT a.work_date,
 		       a.comb_dtst_id,
 		       (select count(0) from t_ails_unit_dtst b where a.comb_dtst_id = b.comb_dtst_id) as unit_dtst_cnt,
-		       a.total_cnt
+		       a.total_cnt,
+		       a.dtrm_yn
 		FROM t_ails_comb_dtst a
 		WHERE 1 = 1 AND a.comb_dtst_type = #{combDtstType}
 

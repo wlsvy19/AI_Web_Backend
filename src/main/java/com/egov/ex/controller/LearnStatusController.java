@@ -72,7 +72,7 @@ public class LearnStatusController {
         return AjaxResp.success(data);
     }
     
-    @ApiOperation("학습 온료")
+    @ApiOperation("학습 완료")
     @PostMapping("/api/learn-status/data/complete")
     public AjaxResp completeStudy() throws Exception {
     	int data = learnStatusService.updateCompeleteLearnStatusInfo();
