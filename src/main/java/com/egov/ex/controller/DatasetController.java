@@ -9,16 +9,11 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.egov.ex.dto.*;
+import com.egov.ex.util.PageUtil;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.egov.ex.dto.AjaxResp;
-import com.egov.ex.dto.DatasetStatusDto;
-import com.egov.ex.dto.DatasetStdSaveDto;
-import com.egov.ex.dto.DatasetUnitSearchDto;
-import com.egov.ex.dto.LabelClassDto;
-import com.egov.ex.dto.LabelDto;
-import com.egov.ex.dto.LabelDtrmStatusDto;
 import com.egov.ex.entity.CmmnCdInfo;
 import com.egov.ex.service.CommonService;
 import com.egov.ex.service.DatasetDataService;
@@ -162,5 +157,73 @@ public class DatasetController {
     public AjaxResp dtstUnitcreateDataset(DatasetUnitSearchDto param) throws Exception{
         // TODO: DB저장 로직
         return AjaxResp.success();
+    }
+
+    /**
+     * 통합 학습데이터 셋 관리
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/api/dtst/comb/barList")
+    public AjaxResp dtstCombInfo(DatasetUnitSearchDto param) throws Exception{
+        Map data = new HashMap();
+        List<CmmnCdInfo> codeList = commonService.selectCmmnCdList("NUM_BTN");
+        List<LabelClassDto> barList = new ArrayList<>();
+        for(CmmnCdInfo cd: codeList) {
+            String code = cd.getCmmnCd();
+            String searchCode = param.getCode();
+            int count =  1000; // TODO:code로 DB에서 가져오기
+            barList.add(new LabelClassDto(code, count));
+        }
+        data.put("barList", barList);
+        return AjaxResp.success();
+    }
+
+    /**
+     * 통합 학습데이터 셋 관리  page List
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/api/dtst/comb/list")
+    public AjaxResp dtstCombList(DatasetUnitSearchDto param) throws Exception{
+        Map data = new HashMap();
+        String searchCode = param.getCode();
+        List<DatasetDto> list = new ArrayList<>();
+        // TODO : searchCode로 해당 리스트 가져와야 함
+        list.add(DatasetDto.builder()
+                        .workDate("2022-01-03")
+                        .combDtstId("TD-20220103-0001")
+                        .unitCnt(2521)
+                        .totalCnt(2003300)
+                        .build()
+                ); // 샘풀코드
+        // 통합 데이터 셋중 단위 데이터 가져오기
+        return AjaxResp.success(list);
+    }
+
+    /**
+     * 통합 학습데이터 셋 관리  page List
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/api/dtst/comb/sub/list")
+    public AjaxResp dtstCombSubList(DatasetUnitSearchDto param) throws Exception{
+        Map data = new HashMap();
+        PageUtil.startPage(param);
+        String searchCode = param.getCode();
+        List<DatasetDto> list = new ArrayList<>();
+        // TODO : searchCode로 해당 리스트 가져와야 함
+        list.add(DatasetDto.builder()
+                .workDate("2022-01-03")
+                .combDtstId("TD-20220103-0001")
+                .unitCnt(2521)
+                .totalCnt(2003300)
+                .build()
+        ); // 샘풀코드
+        // 통합 데이터 셋중 단위 데이터 가져오기
+        return AjaxResp.success(list);
     }
 }
