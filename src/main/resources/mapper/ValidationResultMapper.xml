@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.ValidationResultMapper">
+	<select id="selectValidationResultById" resultType="com.egov.ex.entity.ValidationResult">
+        SELECT * FROM t_ails_validation_result
+        WHERE 1=1
+        AND validating_id=#{validatingId}
+        LIMIT 20
+        OFFSET #{offset}        
+    </select>
+    
+   	<select id="selectValidationResultCountById">
+        SELECT count(*) FROM t_ails_validation_result
+        WHERE 1=1
+        AND validating_id=#{validatingId}
+    </select>  
+</mapper>

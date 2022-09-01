@@ -34,5 +34,29 @@ public class ValidationResult  {
 
     @ApiModelProperty(value = "결과 JSON")
     private String labelJson;
-    
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getValidatingID() {
+		return validatingID;
+	}
+
+	public String getImgWorkDate() {
+		return imgWorkDate;
+	}
+
+	public String getImgWorkNo() {
+		return imgWorkNo;
+	}
+
+	public String getEngineType() {
+		return engineType;
+	}
+
+	public String getLabelJson() {
+		return labelJson;
+	}
+        
 }
