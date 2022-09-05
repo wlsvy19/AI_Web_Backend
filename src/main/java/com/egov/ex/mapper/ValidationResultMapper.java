@@ -23,5 +23,7 @@ public interface ValidationResultMapper {
 	List<ValidationResult> selectValidationResultById(ValidationResultDto param);   
 	
 	int selectValidationResultCountById(ValidationResultDto param);
+	
+	int updateValidationResultByPk(ValidationResultDto param);
 }
 ;

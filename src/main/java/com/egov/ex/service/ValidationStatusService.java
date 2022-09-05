@@ -24,19 +24,23 @@ public class ValidationStatusService extends EgovAbstractServiceImpl {
     @Resource
     private ValidationStatusMapper validationStatusMapper;
 
-    public ValidationStatusInfo selectValidationStatusInfo() {
-        return validationStatusMapper.selectValidationStatusInfo();
+    public ValidationStatusInfo selectValidationStatusInfo(ValidationStatusInfoDto param) {
+        return validationStatusMapper.selectValidationStatusInfo(param);
     }
 
     public int updateStartValidationStatusInfo(ValidationStatusInfoDto param) {
         return validationStatusMapper.updateStartValidationStatusInfo(param);
     }
     
-    public int updateStopValidationStatusInfo() {
-        return validationStatusMapper.updateStopValidationStatusInfo();
+    public int updateStopValidationStatusInfo(ValidationStatusInfoDto param) {
+        return validationStatusMapper.updateStopValidationStatusInfo(param);
     }
     
-    public int updateCompleteValidationStatusInfo() {
-        return validationStatusMapper.updateCompleteValidationStatusInfo();
+    public int updateCompleteValidationStatusInfo(ValidationStatusInfoDto param) {
+        return validationStatusMapper.updateCompleteValidationStatusInfo(param);
+    }
+    
+    public int updateStepValidationStatusInfo(ValidationStatusInfoDto param) {
+        return validationStatusMapper.updateStepValidationStatusInfo(param);
     }
 }

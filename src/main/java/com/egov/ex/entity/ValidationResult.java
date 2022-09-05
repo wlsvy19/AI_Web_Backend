@@ -20,6 +20,9 @@ public class ValidationResult  {
 
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "검증메뉴 ID")
+    private int uiId;
+    
     @ApiModelProperty(value = "검증 ID")
     private String validatingID;
 
@@ -35,8 +38,20 @@ public class ValidationResult  {
     @ApiModelProperty(value = "결과 JSON")
     private String labelJson;
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+    @ApiModelProperty(value = "인식 결과 코드")
+    private String result;
+
+    @ApiModelProperty(value = "정답 일치 여부")
+    private int isCorrect;
+    
+    @ApiModelProperty(value = "(웹) 확인 여부")
+    private String prosYn;
+    
+    @ApiModelProperty(value = "(Join) 정답정보")
+    private String answer;
+
+	public int getUiId() {
+		return uiId;
 	}
 
 	public String getValidatingID() {
@@ -58,5 +73,21 @@ public class ValidationResult  {
 	public String getLabelJson() {
 		return labelJson;
 	}
-        
+
+	public String getResult() {
+		return result;
+	}
+
+	public int getIsCorrect() {
+		return isCorrect;
+	}
+
+	public String getProsYn() {
+		return prosYn;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}     	
+	
 }

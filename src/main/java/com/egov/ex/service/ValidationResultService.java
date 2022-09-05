@@ -35,4 +35,8 @@ public class ValidationResultService extends EgovAbstractServiceImpl {
         return validationResultMapper.selectValidationResultCountById(param);
     }
     
+    public int updateValidationResultByPk(ValidationResultDto param) {
+        return validationResultMapper.updateValidationResultByPk(param);
+    }
+    
 }

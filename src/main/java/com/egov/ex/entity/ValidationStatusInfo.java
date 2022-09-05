@@ -18,6 +18,9 @@ import lombok.EqualsAndHashCode;
 @ApiModel(value="ValidationStatusInfo", description="현재 검증 여부 확인 정보")
 public class ValidationStatusInfo {
 
+    @ApiModelProperty(value = "검증메뉴 ID")
+    private int uiId;
+    
     @ApiModelProperty(value = "현재 검증 진행 여부")
     private Character validatingYn;
 
@@ -59,6 +62,10 @@ public class ValidationStatusInfo {
 
     @ApiModelProperty(value = "해당 데이터 갯수")
     private int totalDataCnt;
+    
+	public int getUiId() {
+		return uiId;
+	}
 
 	public Character getValidatingYn() {
 		return validatingYn;

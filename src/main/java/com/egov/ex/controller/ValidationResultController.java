@@ -41,7 +41,7 @@ public class ValidationResultController {
 
     @ApiOperation("검증결과 불러오기")
     @PostMapping("/api/validation-result/data")
-    public AjaxResp getValdiationResult(@RequestBody ValidationResultDto param) throws Exception {
+    public AjaxResp getValdiationResult(@RequestBody ValidationResultDto param) throws Exception {    	
     	List<ValidationResult> data = validationResultService.selectValidationResultById(param);                
         return AjaxResp.success(data);
     }
@@ -52,4 +52,12 @@ public class ValidationResultController {
     	int data = validationResultService.selectValidationResultCountById(param);                
         return AjaxResp.success(data);
     }
+    
+    @ApiOperation("일치여부, 확인여부 업데이트")
+    @PostMapping("/api/validation-result/data/update-correct")
+    public AjaxResp updateIsCorrect(@RequestBody ValidationResultDto param) throws Exception {
+    	int data = validationResultService.updateValidationResultByPk(param);                
+        return AjaxResp.success(data);
+    }
+    
 }

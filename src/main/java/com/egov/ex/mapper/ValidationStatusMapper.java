@@ -18,12 +18,14 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Repository
 public interface ValidationStatusMapper {
 
-	ValidationStatusInfo selectValidationStatusInfo();   
+	ValidationStatusInfo selectValidationStatusInfo(ValidationStatusInfoDto param);   
 	
 	int updateStartValidationStatusInfo(ValidationStatusInfoDto param);
 	
-    int updateStopValidationStatusInfo();
+    int updateStopValidationStatusInfo(ValidationStatusInfoDto param);
     
-    int updateCompleteValidationStatusInfo();
-	
+    int updateCompleteValidationStatusInfo(ValidationStatusInfoDto param);
+    
+    int updateStepValidationStatusInfo(ValidationStatusInfoDto param);
+    
 }

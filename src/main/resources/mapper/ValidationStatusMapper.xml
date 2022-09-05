@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egov.ex.mapper.ValidationStatusMapper">
 	<select id="selectValidationStatusInfo" resultType="com.egov.ex.entity.ValidationStatusInfo">
-        SELECT * FROM t_ails_validation_status_info
-        LIMIT 1            
+        SELECT * FROM t_ails_validation_status_info                 
+        WHERE ui_id=#{uiId}
     </select>
     
     <update id="updateStartValidationStatusInfo">
@@ -22,16 +22,27 @@
            error_msg = "",
            complete_cnt = 0,
            total_data_cnt = 0
+       WHERE ui_id=#{uiId}
     </update>
+    
     <update id="updateStopValidationStatusInfo">
        update t_ails_validation_status_info set           
            want_to_stop = 'Y',
            progress=0
+       WHERE ui_id=#{uiId}
     </update>
+    
     <update id="updateCompleteValidationStatusInfo">
        update t_ails_validation_status_info set           
            validating_yn = 'N',
            validating_step = 0,
            progress=0
+       WHERE ui_id=#{uiId}
     </update>       
+    
+    <update id="updateStepValidationStatusInfo">
+       update t_ails_validation_status_info set                      
+           validating_step = #{validatingStep}           
+       WHERE ui_id=#{uiId}
+    </update>  
 </mapper>

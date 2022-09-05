@@ -11,17 +11,31 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class ValidationResultDto {
 
+	private String uiId;
+	
     private String validatingId;
     
     private String imgWorkDate;
     
     private String imgWorkNo;
     
-    private String engineType;
+    private Character engineType;
 
     private String labelJson;
     
     private int offset;
+
+    private String isCorrect;
+    
+    private String prosYn;
+    
+	public String getUiId() {
+		return uiId;
+	}
+
+	public void setUiId(String uiId) {
+		this.uiId = uiId;
+	}
 
 	public String getValidatingId() {
 		return validatingId;
@@ -47,11 +61,11 @@ public class ValidationResultDto {
 		this.imgWorkNo = imgWorkNo;
 	}
 
-	public String getEngineType() {
+	public Character getEngineType() {
 		return engineType;
 	}
 
-	public void setEngineType(String engineType) {
+	public void setEngineType(Character engineType) {
 		this.engineType = engineType;
 	}
 
@@ -69,6 +83,22 @@ public class ValidationResultDto {
 
 	public void setOffset(int offset) {
 		this.offset = offset;
+	}
+
+	public String getIsCorrect() {
+		return isCorrect;
+	}
+
+	public void setIsCorrect(String isCorrect) {
+		this.isCorrect = isCorrect;
+	}
+
+	public String getProsYn() {
+		return prosYn;
+	}
+
+	public void setProsYn(String prosYn) {
+		this.prosYn = prosYn;
 	}
     
 }

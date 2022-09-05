@@ -40,8 +40,8 @@ public class ValidationStatusController {
 
     @ApiOperation("검증상태 모니터링")
     @PostMapping("/api/validation-status/data")
-    public AjaxResp learnStatus() throws Exception {
-        ValidationStatusInfo data = validationStatusService.selectValidationStatusInfo();                
+    public AjaxResp learnStatus(@RequestBody ValidationStatusInfoDto param) throws Exception {
+        ValidationStatusInfo data = validationStatusService.selectValidationStatusInfo(param);                
         return AjaxResp.success(data);
     }
     
@@ -57,15 +57,22 @@ public class ValidationStatusController {
     
     @ApiOperation("검증진행 멈추기")
     @PostMapping("/api/validation-status/data/stop")
-    public AjaxResp stopStudy() throws Exception {
-    	int data = validationStatusService.updateStopValidationStatusInfo();
+    public AjaxResp stopStudy(@RequestBody ValidationStatusInfoDto param) throws Exception {
+    	int data = validationStatusService.updateStopValidationStatusInfo(param);
         return AjaxResp.success(data);
     }
     
     @ApiOperation("검증 완료")
     @PostMapping("/api/validation-status/data/complete")
-    public AjaxResp completeStudy() throws Exception {
-    	int data = validationStatusService.updateCompleteValidationStatusInfo();
+    public AjaxResp completeStudy(@RequestBody ValidationStatusInfoDto param) throws Exception {
+    	int data = validationStatusService.updateCompleteValidationStatusInfo(param);
+        return AjaxResp.success(data);
+    }
+    
+    @ApiOperation("스텝 변경")
+    @PostMapping("/api/validation-status/data/step")
+    public AjaxResp changeValidationStep(@RequestBody ValidationStatusInfoDto param) throws Exception {
+    	int data = validationStatusService.updateStepValidationStatusInfo(param);
         return AjaxResp.success(data);
     }
 }

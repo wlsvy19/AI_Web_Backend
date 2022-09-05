@@ -10,9 +10,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ValidationStatusInfoDto {
-
+	
+	private int uiId;
+	
     private String validatingId;
-
+    
+    private int validatingStep;
+    
     private String weightId;
 
     private String engineType;
@@ -25,12 +29,28 @@ public class ValidationStatusInfoDto {
 
     private String startDttm;
     
+	public int getUiId() {
+		return uiId;
+	}
+
+	public void setUiId(int uiId) {
+		this.uiId = uiId;
+	}
+
 	public String getValidatingId() {
 		return validatingId;
 	}
 
 	public void setValidatingId(String validatingId) {
 		this.validatingId = validatingId;
+	}
+	
+	public int getValidatingStep() {
+		return validatingStep;
+	}
+
+	public void setValidatingStep(int validatingStep) {
+		this.validatingStep = validatingStep;
 	}
 
 	public String getWeightId() {
