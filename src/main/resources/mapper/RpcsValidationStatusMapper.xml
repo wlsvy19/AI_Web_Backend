@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.RpcsValidationStatusMapper">
+	<select id="selectRpcsValidationStatusInfo" resultType="com.egov.ex.entity.RpcsValidationStatusInfo">
+        SELECT * FROM t_ails_rpcs_validation_status_info                 
+        LIMIT 1
+    </select>
+    
+    <update id="updateStartRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set
+           validating_yn = 'Y',
+           validating_step = 1,
+           validating_id = #{validatingId},
+           progress=0,           
+           weight_A=#{weightA},                     
+           weight_B=#{weightB},           
+           weight_C=#{weightC},           
+           weight_D=#{weightD},           
+           weight_E=#{weightE},           
+           weight_F=#{weightF},           
+           hdqr_nm=#{hdqrNm},
+           hdqr_cd=#{hdqrCd},
+           mtnof_nm=#{mtnofNm},
+           mtnof_cd=#{mtnofCd},
+           tolof_nm=#{tolofNm},
+           tolof_cd=#{tolofCd},
+           crgw_type_cd=#{crgwTypeCd},
+           crgw_no=#{crgwNo},
+           search_work_date=#{searchWorkDate},
+           search_start_time=#{searchStartTime},
+           search_end_time=#{searchEndTime},
+           want_to_stop = 'N',
+           start_dttm = #{startDttm},
+           finish_dttm = null,
+           error_msg = "",
+           complete_cnt = 0,
+           total_data_cnt = 0
+       WHERE ui_id=#{uiId}
+    </update>
+    
+    <update id="updateStopRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set           
+           want_to_stop = 'Y',
+           progress=0
+       WHERE ui_id=#{uiId}
+    </update>
+    
+    <update id="updateCompleteValidationStatusInfo">
+       update t_ails_validation_status_info set           
+           validating_yn = 'N',
+           validating_step = 0,
+           progress=0
+       WHERE ui_id=#{uiId}
+    </update>       
+    
+    <update id="updateStepRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set                      
+           validating_step = #{validatingStep}           
+       WHERE ui_id=#{uiId}
+    </update>  
+</mapper>
