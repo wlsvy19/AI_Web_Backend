@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.RpcsValidationStatusMapper">
+	<select id="selectRpcsValidationStatusInfo" resultType="com.egov.ex.entity.RpcsValidationStatusInfo">
+        SELECT * FROM t_ails_rpcs_validation_status_info                 
+        LIMIT 1
+    </select>
+    
+   	<select id="selectHdqrNmList" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT hdqr_nm, hdqr_cd  FROM t_ails_tolof_info
+        GROUP BY hdqr_nm
+        ORDER BY hdqr_cd
+    </select>
+    
+    <select id="selectMtnofNmListByHdqrCd" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT mtnof_nm, mtnof_cd  FROM t_ails_tolof_info
+        WHERE 1=1
+        AND hdqr_cd = #{hdqrCd}
+        GROUP BY mtnof_nm
+        ORDER BY mtnof_cd
+    </select>
+    
+    <select id="selectTolofNmListByCd" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT kor_tolof_nm, tolof_cd FROM t_ails_tolof_info
+        WHERE 1=1
+        AND hdqr_cd = #{hdqrCd}
+        AND mtnof_cd = #{mtnofCd}
+        GROUP BY kor_tolof_nm
+        ORDER BY tolof_cd
+    </select>
+    
+    <select id="selectCrgwInfoListByCd" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT crgw_no, crgw_type_cd, hdqr_db_ip FROM t_ails_tolof_info
+        WHERE 1=1
+        AND hdqr_cd = #{hdqrCd}
+        AND mtnof_cd = #{mtnofCd}
+        AND tolof_cd = #{tolofCd}
+        ORDER BY crgw_no
+    </select>
+    
+    <update id="updateStartRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set
+           validating_yn = 'Y',
+           validating_step = 1,
+           validating_id = #{validatingId},
+           progress=0,           
+           weight_A=#{weightA},                     
+           weight_B=#{weightB},           
+           weight_C=#{weightC},           
+           weight_D=#{weightD},           
+           weight_E=#{weightE},           
+           weight_F=#{weightF},           
+           hdqr_nm=#{hdqrNm},
+           hdqr_cd=#{hdqrCd},
+           mtnof_nm=#{mtnofNm},
+           mtnof_cd=#{mtnofCd},
+           tolof_nm=#{tolofNm},
+           tolof_cd=#{tolofCd},
+           crgw_type_cd=#{crgwTypeCd},
+           crgw_no=#{crgwNo},
+           search_work_date=#{searchWorkDate},
+           search_start_time=#{searchStartTime},
+           search_end_time=#{searchEndTime},
+           want_to_stop = 'N',
+           start_dttm = #{startDttm},
+           finish_dttm = null,
+           error_msg = "",
+           complete_cnt = 0,
+           total_data_cnt = 0
+       WHERE ui_id=#{uiId}
+    </update>
+    
+    <update id="updateStopRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set           
+           want_to_stop = 'Y',
+           progress=0
+       WHERE ui_id=#{uiId}
+    </update>
+    
+    <update id="updateCompleteRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set           
+           validating_yn = 'N',
+           validating_step = 0,
+           progress=0
+       WHERE ui_id=#{uiId}
+    </update>       
+    
+    <update id="updateStepRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set                      
+           validating_step = #{validatingStep}           
+       WHERE ui_id=#{uiId}
+    </update>  
+</mapper>
