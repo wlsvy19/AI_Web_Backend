@@ -4,7 +4,19 @@
 	<select id="selectRpcsValidationResult" resultType="com.egov.ex.entity.RpcsValidationResult">
         SELECT * FROM t_ails_rpcs_validation_result
         WHERE 1=1
-        AND validating_id=#{validatingId}      
+        AND validating_id=#{validatingId}
+        <if test="isCorrectNum == 0">
+        AND is_correct_num = 0
+        </if>
+        <if test="isCorrectNum == 0 and isCorrectType == 0">
+        OR
+        </if>
+        <if test="isCorrectNum == 1 and isCorrectType == 0">
+        AND
+        </if>
+        <if test="isCorrectType == 0">
+        is_correct_type = 0
+        </if>      
         ORDER BY img_work_no  
     </select>
     
@@ -27,7 +39,6 @@
         WHERE 1=1
         AND validating_id=#{validatingId}       
     </select>
-    
     
    	<delete id="deleteRpcsValidationResultAll">
    		DELETE FROM t_ails_rpcs_validation_result

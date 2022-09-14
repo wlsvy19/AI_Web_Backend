@@ -9,9 +9,11 @@ import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.CmmnCdInfoDto;
 import com.egov.ex.entity.CmmnCdInfo;
 import com.egov.ex.service.CmmnCdInfoService;
 
@@ -47,5 +49,12 @@ public class CmmnCdInfoController {
     	}
     	
         return AjaxResp.success(result);
+    }
+    
+    @PostMapping("/api/cmmn-cd-info/code")
+    public AjaxResp getCodebyGroupCode(@RequestBody CmmnCdInfoDto param) throws Exception { 
+    	
+    	List<CmmnCdInfo> data = cmmnCdInfoService.selectCmmnCdList(param.getGrpCd());
+        return AjaxResp.success(data);
     }
 }
