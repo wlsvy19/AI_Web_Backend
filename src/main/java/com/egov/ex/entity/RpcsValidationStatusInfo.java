@@ -75,6 +75,9 @@ public class RpcsValidationStatusInfo {
     @ApiModelProperty(value = "차로 번호")
     private String crgwNo;
 
+    @ApiModelProperty(value = "검색할 영업소 본부 DB IP")
+    private String hdqrDbIp;
+    
     @ApiModelProperty(value = "검색 일자")
     private String searchWorkDate;
 
@@ -176,6 +179,10 @@ public class RpcsValidationStatusInfo {
 
 	public String getCrgwNo() {
 		return crgwNo;
+	}
+	
+	public String getHdqrDbIp() {
+		return hdqrDbIp;
 	}
 
 	public String getSearchWorkDate() {

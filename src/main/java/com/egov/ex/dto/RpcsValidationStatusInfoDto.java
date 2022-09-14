@@ -49,6 +49,8 @@ public class RpcsValidationStatusInfoDto {
 
     private String crgwNo;
 
+    private String hdqrDbIp;
+    
     private String searchWorkDate;
 
     private String searchStartTime;
@@ -217,6 +219,14 @@ public class RpcsValidationStatusInfoDto {
 
 	public void setCrgwNo(String crgwNo) {
 		this.crgwNo = crgwNo;
+	}
+	
+	public String getHdqrDbIp() {
+		return hdqrDbIp;
+	}
+
+	public void setHdqrDbIp(String hdqrDbIp) {
+		this.hdqrDbIp = hdqrDbIp;
 	}
 
 	public String getSearchWorkDate() {

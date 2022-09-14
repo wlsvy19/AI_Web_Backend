@@ -1,6 +1,8 @@
 package com.egov.ex.controller;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.egov.ex.dto.AjaxResp;
 import com.egov.ex.dto.RpcsValidationStatusInfoDto;
+import com.egov.ex.dto.TolofInfoDto;
 import com.egov.ex.entity.RpcsValidationStatusInfo;
+import com.egov.ex.entity.TolofInfo;
 import com.egov.ex.service.RpcsValidationStatusService;
 
 import io.swagger.annotations.Api;
@@ -69,6 +73,34 @@ public class RpcsValidationStatusController {
     @PostMapping("/api/rpcs-status/data/step")
     public AjaxResp changeValidationStep(@RequestBody RpcsValidationStatusInfoDto param) throws Exception {
     	int data = rpcsValidationStatusService.updateStepRpcsValidationStatusInfo(param);
+        return AjaxResp.success(data);
+    }
+    
+    @ApiOperation("수도권 목록 조회")
+    @PostMapping("/api/tolof-info/data/hdqr")
+    public AjaxResp getHdqrInfoList() throws Exception {
+    	List<TolofInfo> data = rpcsValidationStatusService.selectHdqrNmList();
+        return AjaxResp.success(data);
+    }
+    
+    @ApiOperation("지사 목록 조회")
+    @PostMapping("/api/tolof-info/data/mtn")
+    public AjaxResp getMtnInfoList(@RequestBody TolofInfoDto param) throws Exception {
+    	List<TolofInfo> data = rpcsValidationStatusService.selectMtnofNmListByHdqrCd(param);
+        return AjaxResp.success(data);
+    }
+    
+    @ApiOperation("영업소 목록 조회")
+    @PostMapping("/api/tolof-info/data/tol")
+    public AjaxResp getTolInfoList(@RequestBody TolofInfoDto param) throws Exception {
+    	List<TolofInfo> data = rpcsValidationStatusService.selectTolofNmListByCd(param);
+        return AjaxResp.success(data);
+    }
+    
+    @ApiOperation("차로 정보 조회")
+    @PostMapping("/api/tolof-info/data/crgw")
+    public AjaxResp getCrgwInfoList(@RequestBody TolofInfoDto param) throws Exception {
+    	List<TolofInfo> data = rpcsValidationStatusService.selectCrgwInfoListByCd(param);
         return AjaxResp.success(data);
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egov.ex.mapper.RpcsValidationResultMapper">
+	<select id="selectRpcsValidationResult" resultType="com.egov.ex.entity.RpcsValidationResult">
+        SELECT * FROM t_ails_rpcs_validation_result
+        WHERE 1=1
+        AND validating_id=#{validatingId}      
+        ORDER BY img_work_no  
+    </select>
+    
+    <select id="selectRpcsImgByPk" resultType="com.egov.ex.entity.RpcsValidationResult">
+        SELECT * 
+        FROM t_ails_rpcs_validation_result
+        WHERE 1 = 1
+        AND validating_id=#{validatingId}
+        AND img_work_date = #{imgWorkDate}
+        AND img_work_no = #{imgWorkNo}
+    </select>
+    
+    <select id="countIsCorrect" resultType="java.util.HashMap">
+        SELECT
+        COUNT(CASE WHEN is_correct_num=1 then 1 end) AS numCorrect,
+		COUNT(CASE WHEN is_correct_num=0 then 1 end) AS numIncorrect,
+		COUNT(CASE WHEN is_correct_type=1 then 1 end) AS typeCorrect,
+		COUNT(CASE WHEN is_correct_type=0 then 1 end) AS typeIncorrect
+        FROM t_ails_rpcs_validation_result 
+        WHERE 1=1
+        AND validating_id=#{validatingId}       
+    </select>
+    
+    
+   	<delete id="deleteRpcsValidationResultAll">
+   		DELETE FROM t_ails_rpcs_validation_result
+   	</delete>
+</mapper>

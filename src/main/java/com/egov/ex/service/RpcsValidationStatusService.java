@@ -1,11 +1,15 @@
 package com.egov.ex.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.egov.ex.dto.RpcsValidationStatusInfoDto;
+import com.egov.ex.dto.TolofInfoDto;
 import com.egov.ex.entity.RpcsValidationStatusInfo;
+import com.egov.ex.entity.TolofInfo;
 import com.egov.ex.mapper.RpcsValidationStatusMapper;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -42,5 +46,21 @@ public class RpcsValidationStatusService extends EgovAbstractServiceImpl {
     
     public int updateStepRpcsValidationStatusInfo(RpcsValidationStatusInfoDto param) {
         return rpcsValidationStatusMapper.updateStepRpcsValidationStatusInfo(param);
+    }
+    
+    public List<TolofInfo> selectHdqrNmList() {
+        return rpcsValidationStatusMapper.selectHdqrNmList();
+    }
+    
+    public List<TolofInfo> selectMtnofNmListByHdqrCd(TolofInfoDto param) {
+        return rpcsValidationStatusMapper.selectMtnofNmListByHdqrCd(param);
+    }
+    
+    public List<TolofInfo> selectTolofNmListByCd(TolofInfoDto param) {
+        return rpcsValidationStatusMapper.selectTolofNmListByCd(param);
+    }
+    
+    public List<TolofInfo> selectCrgwInfoListByCd(TolofInfoDto param) {
+        return rpcsValidationStatusMapper.selectCrgwInfoListByCd(param);
     }
 }

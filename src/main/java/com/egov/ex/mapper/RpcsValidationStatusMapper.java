@@ -1,8 +1,12 @@
 package com.egov.ex.mapper;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.egov.ex.dto.RpcsValidationStatusInfoDto;
+import com.egov.ex.dto.TolofInfoDto;
 import com.egov.ex.entity.RpcsValidationStatusInfo;
+import com.egov.ex.entity.TolofInfo;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
@@ -27,5 +31,13 @@ public interface RpcsValidationStatusMapper {
     int updateCompleteRpcsValidationStatusInfo(RpcsValidationStatusInfoDto param);
     
     int updateStepRpcsValidationStatusInfo(RpcsValidationStatusInfoDto param);
+    
+    List<TolofInfo> selectHdqrNmList();
+    
+    List<TolofInfo> selectMtnofNmListByHdqrCd(TolofInfoDto param);
+    
+    List<TolofInfo> selectTolofNmListByCd(TolofInfoDto param);
+    
+    List<TolofInfo> selectCrgwInfoListByCd(TolofInfoDto param);
     
 }

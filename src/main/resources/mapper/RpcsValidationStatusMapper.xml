@@ -6,6 +6,38 @@
         LIMIT 1
     </select>
     
+   	<select id="selectHdqrNmList" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT hdqr_nm, hdqr_cd  FROM t_ails_tolof_info
+        GROUP BY hdqr_nm
+        ORDER BY hdqr_cd
+    </select>
+    
+    <select id="selectMtnofNmListByHdqrCd" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT mtnof_nm, mtnof_cd  FROM t_ails_tolof_info
+        WHERE 1=1
+        AND hdqr_cd = #{hdqrCd}
+        GROUP BY mtnof_nm
+        ORDER BY mtnof_cd
+    </select>
+    
+    <select id="selectTolofNmListByCd" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT kor_tolof_nm, tolof_cd FROM t_ails_tolof_info
+        WHERE 1=1
+        AND hdqr_cd = #{hdqrCd}
+        AND mtnof_cd = #{mtnofCd}
+        GROUP BY kor_tolof_nm
+        ORDER BY tolof_cd
+    </select>
+    
+    <select id="selectCrgwInfoListByCd" resultType="com.egov.ex.entity.TolofInfo">
+        SELECT crgw_no, crgw_type_cd, hdqr_db_ip FROM t_ails_tolof_info
+        WHERE 1=1
+        AND hdqr_cd = #{hdqrCd}
+        AND mtnof_cd = #{mtnofCd}
+        AND tolof_cd = #{tolofCd}
+        ORDER BY crgw_no
+    </select>
+    
     <update id="updateStartRpcsValidationStatusInfo">
        update t_ails_rpcs_validation_status_info set
            validating_yn = 'Y',
@@ -45,8 +77,8 @@
        WHERE ui_id=#{uiId}
     </update>
     
-    <update id="updateCompleteValidationStatusInfo">
-       update t_ails_validation_status_info set           
+    <update id="updateCompleteRpcsValidationStatusInfo">
+       update t_ails_rpcs_validation_status_info set           
            validating_yn = 'N',
            validating_step = 0,
            progress=0
