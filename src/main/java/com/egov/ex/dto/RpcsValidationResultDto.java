@@ -22,6 +22,8 @@ public class RpcsValidationResultDto extends Page {
 
     private byte[] imgData;
     
+    private byte[] reprocessingImgData;
+    
     private String rpcsNumRecgResult;
     
     private String newNumRecgResult;
@@ -70,6 +72,14 @@ public class RpcsValidationResultDto extends Page {
 
 	public byte[] getImgData() {
 		return imgData;
+	}
+	
+	public byte[] getReprocessingImgData() {
+		return reprocessingImgData;
+	}
+
+	public void setReprocessingImgData(byte[] reprocessingImgData) {
+		this.reprocessingImgData = reprocessingImgData;
 	}
 
 	public void setImgData(byte[] imgData) {
