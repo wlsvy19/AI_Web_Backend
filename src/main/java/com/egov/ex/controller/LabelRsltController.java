@@ -42,7 +42,7 @@ public class LabelRsltController {
     public AjaxResp rsltDataSave(@RequestBody LabelRslt param) throws Exception {
         int r = labelRsltService.updateLabelRslt(param);
         if (r == 0) labelRsltService.insertLabelRslt(param);
-        return AjaxResp.success();
+        return AjaxResp.success(r);
     }
     
     @PostMapping(value="/api/label-rslt/data/del")

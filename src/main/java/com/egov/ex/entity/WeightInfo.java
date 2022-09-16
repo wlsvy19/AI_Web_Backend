@@ -38,9 +38,15 @@ public class WeightInfo {
     @ApiModelProperty(value = "배치수")
     private Integer itertaionNo;
 
+    @ApiModelProperty(value = "mAP")
+    private Float map;
+    
     @ApiModelProperty(value = "파일경로")
     private String filePath;
 
+    @ApiModelProperty(value = "삭제여부")
+    private Character isDelete;
+    
 	public String getWorkDate() {
 		return workDate;
 	}
