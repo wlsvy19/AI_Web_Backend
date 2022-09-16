@@ -35,6 +35,9 @@ public class RpcsValidationResult {
     @ApiModelProperty(value = "파일Blob")
     private byte[] imgData;
     
+    @ApiModelProperty(value = "재처리 파일Blob")
+    private byte[] reprocessingImgData;
+    
     @ApiModelProperty(value = "기존 재인식 번호인식 결과")
     private String rpcsNumRecgResult;
     
@@ -74,6 +77,10 @@ public class RpcsValidationResult {
 
 	public byte[] getImgData() {
 		return imgData;
+	}
+	
+	public byte[] getReprocessingImgData() {
+		return reprocessingImgData;
 	}
 
 	public String getRpcsNumRecgResult() {
