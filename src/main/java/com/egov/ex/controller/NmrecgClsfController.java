@@ -1,15 +1,19 @@
 package com.egov.ex.controller;
 
 
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.egov.ex.dto.AjaxResp;
-import com.egov.ex.dto.LearnStatusDto;
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.NmrecgClsfDto;
 import com.egov.ex.service.NmrecgClsfService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import io.swagger.annotations.Api;
 
 /**
  * <p>
@@ -38,4 +42,12 @@ public class NmrecgClsfController {
         return AjaxResp.success();
 
     }
+    
+    @PostMapping("/api/nmrecg-clsf/data/del")
+    public AjaxResp removeNmrecgClsfData(@RequestBody CommonSearchImgDataDto param) throws Exception {
+        int r = nmrecgClsfService.updateNmrecgClsfDelYnById(param);        
+        return AjaxResp.success(r);
+
+    }
+    
 }

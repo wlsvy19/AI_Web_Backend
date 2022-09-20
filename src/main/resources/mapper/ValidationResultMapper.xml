@@ -2,12 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egov.ex.mapper.ValidationResultMapper">
 	<select id="selectValidationResultById" resultType="com.egov.ex.entity.ValidationResult">
-        SELECT A.* 
+        SELECT A.*         
         <if test="engineType=='E'">
        	, (SELECT label_json FROM t_ails_label_rslt WHERE work_date=A.img_work_date AND work_no=A.img_work_no AND label_type=A.engine_type) as answer
         </if>
         <if test="engineType=='F'">
        	, (SELECT nmrecg_cd FROM t_ails_crgw_img_data WHERE work_date=A.img_work_date AND work_no=A.img_work_no) as answer
+        </if>
+        <if test="engineType !='E' and engineType !='F'">
+       	, (SELECT label_data_text FROM t_ails_label_rslt WHERE work_date=A.img_work_date AND work_no=A.img_work_no AND label_type=A.engine_type) as answer
         </if>
         FROM t_ails_validation_result A
         WHERE 1=1
@@ -23,14 +26,15 @@
         OFFSET #{offset}        
     </select>
     
-   	<select id="selectValidationResultCountById" resultType="int" >
-        SELECT count(*) FROM t_ails_validation_result
+   	<select id="selectValidationResultCountById" resultType="java.util.HashMap" >
+        SELECT
+        COUNT(*) as totalCount 
+        ,COUNT(case when is_correct=1 then 1 END) AS correctCount
+        ,COUNT(case when del_yn='Y' then 1 END) AS delCount
+        FROM t_ails_validation_result
         WHERE 1=1
         AND ui_id=#{uiId}
-        AND validating_id=#{validatingId}
-        <if test="isCorrect != null and isCorrect != ''">
-        AND is_correct=#{isCorrect}
-        </if>
+        AND validating_id=#{validatingId}        
         <if test="prosYn != null and prosYn != ''">
         AND pros_yn=#{prosYn}
         </if>
@@ -46,4 +50,15 @@
 	    AND img_work_date = #{imgWorkDate}
 	    AND img_work_no = #{imgWorkNo}
     </update>
+    
+    <update id="updateValidationResultDelYnByPk">
+	    UPDATE t_ails_validation_result set
+	        del_yn=#{delYn}        
+	    WHERE 1=1
+	    AND ui_id=#{uiId}
+	    AND validating_id=#{validatingId}	    
+	    AND img_work_date = #{imgWorkDate}
+	    AND img_work_no = #{imgWorkNo}
+    </update>
+    
 </mapper>

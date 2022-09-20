@@ -1,13 +1,14 @@
 package com.egov.ex.service;
 
-import com.egov.ex.dto.CrgwImgDataSaveData;
-import com.egov.ex.dto.LabelRsltSaveDto;
-import com.egov.ex.entity.LabelRslt;
-import com.egov.ex.mapper.LabelRsltMapper;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.entity.LabelRslt;
+import com.egov.ex.mapper.LabelRsltMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -37,5 +38,9 @@ public class LabelRsltService extends EgovAbstractServiceImpl {
 	public void updateLabelRsltDel(LabelRslt param) {
 		labelRsltMapper.updateLabelRsltDel(param);
 	}
-
+	
+	public void deleteLabelRsltById(CommonSearchImgDataDto param) {
+		labelRsltMapper.deleteLabelRsltById(param);
+	}
+	
 }

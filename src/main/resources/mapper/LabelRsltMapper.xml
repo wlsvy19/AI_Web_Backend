@@ -90,4 +90,13 @@
             AND label_type IN ('F')
         </if>
     </update>
+    
+    <delete id="deleteLabelRsltById">
+	    DELETE FROM t_ails_label_rslt
+	    WHERE 1=1
+	    AND work_date = #{workDate}
+	    AND work_no = #{workNo}
+	    AND label_type = #{labelType}        
+    </delete>
+    
 </mapper>

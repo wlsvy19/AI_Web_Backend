@@ -1,6 +1,7 @@
 package com.egov.ex.mapper;
 import org.springframework.stereotype.Repository;
 
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
 import com.egov.ex.entity.PlateImg;
 
@@ -20,5 +21,9 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 public interface PlateImgMapper  {
 
 	PlateImg selectPlateImgById(CrgwImgSearchData param);
+	
+	int updatePlateImgDelYnByPk(CommonSearchImgDataDto param);
+
+	int updatePlateImgProsYnByPk(CommonSearchImgDataDto param);
 
 }

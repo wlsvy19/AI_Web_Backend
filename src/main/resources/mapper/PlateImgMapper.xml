@@ -10,4 +10,21 @@
         AND WORK_NO = #{workNo}
     </select>
     
+    <update id="updatePlateImgDelYnByPk">
+        UPDATE t_ails_plate_img SET        
+        del_yn = #{delYn}
+        WHERE 1=1
+        AND work_date = #{workDate}
+        AND work_no = #{workNo}
+        AND label_type = #{labelType}
+    </update>
+    
+    <update id="updatePlateImgProsYnByPk">
+        UPDATE t_ails_plate_img SET        
+       	pros_yn = #{prosYn}
+        WHERE 1=1
+        AND work_date = #{workDate}
+        AND work_no = #{workNo}
+        AND label_type = #{labelType}
+    </update>
 </mapper>

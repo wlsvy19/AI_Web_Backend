@@ -5,15 +5,19 @@ import javax.annotation.Resource;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.egov.ex.dto.AjaxResp;
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
 import com.egov.ex.entity.IncnImg;
 import com.egov.ex.service.IncnImgService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>
@@ -39,5 +43,12 @@ public class IncnImgController {
     public @ResponseBody byte[] incnImg(CrgwImgSearchData param) throws Exception {
         IncnImg info = incnImgService.selectIncnImgById(param);
         return info.getImgData();
+    }
+    
+    @ApiOperation("꺾인번호판 영상 삭제여부 업데이트")
+    @PostMapping("/api/incn-img/data/del")
+    public AjaxResp incnImgDel(@RequestBody CommonSearchImgDataDto param) throws Exception {    	
+    	int data = incnImgService.updateIncnImgDelYnByPk(param);                
+        return AjaxResp.success(data);
     }
 }

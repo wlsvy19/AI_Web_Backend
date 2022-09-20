@@ -58,6 +58,7 @@
            tolof_cd=#{tolofCd},
            crgw_type_cd=#{crgwTypeCd},
            crgw_no=#{crgwNo},
+           hdqr_db_ip=#{hdarDbIp},
            search_work_date=#{searchWorkDate},
            search_start_time=#{searchStartTime},
            search_end_time=#{searchEndTime},

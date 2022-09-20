@@ -14,7 +14,7 @@
         FROM t_ails_crgw_img
         WHERE 1 = 1
         AND WORK_DATE = #{workDate}
-        AND WORK_NO = #{workNo}
+        AND WORK_NO = #{workNo}        
     </select>
 
     <select id="selectCrgwImgList" resultType="com.egov.ex.entity.CrgwImg">
@@ -24,5 +24,12 @@
         ORDER BY WORK_DATE, WORK_NO
         LIMIT 10
     </select>
+    
+    <update id="updateCrgwImgDelYnById">
+        update t_ails_crgw_img set
+            del_yn = #{delYn}
+        WHERE work_date = #{workDate}
+            AND work_no = #{workNo}
+    </update>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.egov.ex.mapper;
 import org.springframework.stereotype.Repository;
 
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
 import com.egov.ex.entity.IncnImg;
 
@@ -21,4 +22,7 @@ public interface IncnImgMapper  {
 	
 	IncnImg selectIncnImgById(CrgwImgSearchData param);
 
+	int updateIncnImgDelYnByPk(CommonSearchImgDataDto param);
+	
+	int updateIncnImgProsYnByPk(CommonSearchImgDataDto param);
 }

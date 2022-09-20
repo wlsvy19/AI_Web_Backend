@@ -26,10 +26,7 @@ public class IncnImg {
     @ApiModelProperty(value = "생성순번")
     private String workNo;
 
-    public byte[] getImgData() {
-		return imgData;
-	}
-
+    @ApiModelProperty(value = "라벨 타입")
 	private String labelType;
 
     @ApiModelProperty(value = "파일명")
@@ -41,5 +38,8 @@ public class IncnImg {
     @ApiModelProperty(value = "파일Blob")
     private byte[] imgData;
 
+    public byte[] getImgData() {
+		return imgData;
+	}
 
 }

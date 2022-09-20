@@ -35,4 +35,23 @@
         WHERE work_date = #{workDate}
             AND work_no = #{workNo}
     </update>
+    
+    <update id="updateNmrecgClsfDelYnById">
+        update t_ails_nmrecg_clsf set
+        del_yn = #{delYn}
+        <if test="delYn == 'Y'">
+        , del_dttm = now()
+        </if>
+        WHERE work_date = #{workDate}
+        AND work_no = #{workNo}
+    </update>
+    
+   <update id="updateNmrecgClsfProsYnById">
+        update t_ails_nmrecg_clsf set
+		dtrm_yn = 'N',
+		dtrm_dttm = null,
+        pros_yn = #{prosYn}        
+        WHERE work_date = #{workDate}
+        AND work_no = #{workNo}
+    </update>
 </mapper>

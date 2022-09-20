@@ -31,7 +31,7 @@ public class ValidationResultService extends EgovAbstractServiceImpl {
         return validationResultMapper.selectValidationResultById(param);
     }
     
-    public int selectValidationResultCountById(ValidationResultDto param) {
+    public HashMap selectValidationResultCountById(ValidationResultDto param) {
         return validationResultMapper.selectValidationResultCountById(param);
     }
     
@@ -39,4 +39,7 @@ public class ValidationResultService extends EgovAbstractServiceImpl {
         return validationResultMapper.updateValidationResultByPk(param);
     }
     
+    public int updateValidationResultDelYnByPk(ValidationResultDto param) {
+        return validationResultMapper.updateValidationResultDelYnByPk(param);
+    }    
 }

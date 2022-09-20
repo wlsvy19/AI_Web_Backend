@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
 import com.egov.ex.entity.PlateImg;
 import com.egov.ex.mapper.PlateImgMapper;
@@ -28,5 +29,12 @@ public class PlateImgService extends EgovAbstractServiceImpl {
     public PlateImg selectPlateImgById(CrgwImgSearchData param) {
         return plateImgMapper.selectPlateImgById(param);
     }
-  
+    
+    public int updatePlateImgDelYnByPk(CommonSearchImgDataDto param) {
+        return plateImgMapper.updatePlateImgDelYnByPk(param);
+    }
+    
+    public int updatePlateImgProsYnByPk(CommonSearchImgDataDto param) {
+        return plateImgMapper.updatePlateImgProsYnByPk(param);
+    }
 }

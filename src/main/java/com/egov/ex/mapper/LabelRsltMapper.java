@@ -1,7 +1,10 @@
 package com.egov.ex.mapper;
-import com.egov.ex.entity.LabelRslt;
-import egovframework.rte.psl.dataaccess.mapper.Mapper;
 import org.springframework.stereotype.Repository;
+
+import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.entity.LabelRslt;
+
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 /**
  * <p>
@@ -22,4 +25,6 @@ public interface LabelRsltMapper  {
     LabelRslt selectLabelRsltById(LabelRslt param);
 
     void updateLabelRsltDel(LabelRslt param);
+    
+    int deleteLabelRsltById(CommonSearchImgDataDto param);
 }

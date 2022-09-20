@@ -29,6 +29,8 @@ public class ValidationResultDto {
     
     private String prosYn;
     
+    private Character delYn;
+    
 	public String getUiId() {
 		return uiId;
 	}
@@ -99,6 +101,14 @@ public class ValidationResultDto {
 
 	public void setProsYn(String prosYn) {
 		this.prosYn = prosYn;
+	}
+
+	public Character getDelYn() {
+		return delYn;
+	}
+
+	public void setDelYn(Character delYn) {
+		this.delYn = delYn;
 	}
     
 }
