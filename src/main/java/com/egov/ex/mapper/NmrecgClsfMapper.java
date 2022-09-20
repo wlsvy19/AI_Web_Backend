@@ -1,7 +1,10 @@
 package com.egov.ex.mapper;
-import com.egov.ex.dto.NmrecgClsfDto;
-import egovframework.rte.psl.dataaccess.mapper.Mapper;
 import org.springframework.stereotype.Repository;
+
+import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.NmrecgClsfDto;
+
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 /**
  * <p>
@@ -17,5 +20,9 @@ public interface NmrecgClsfMapper {
 
     int updateNmRecgClsf(NmrecgClsfDto param);
 
+    int updateNmrecgClsfDelYnById(CommonSearchImgDataDto param);
+    
     void insertNmRecgClsf(NmrecgClsfDto param);
+    
+    int updateNmrecgClsfProsYnById(CommonSearchImgDataDto param);
 }

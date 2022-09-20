@@ -1,11 +1,14 @@
 package com.egov.ex.service;
 
-import com.egov.ex.dto.NmrecgClsfDto;
-import com.egov.ex.mapper.NmrecgClsfMapper;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.NmrecgClsfDto;
+import com.egov.ex.mapper.NmrecgClsfMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -24,7 +27,15 @@ public class NmrecgClsfService extends EgovAbstractServiceImpl {
         return nmrecgClsfMapper.updateNmRecgClsf(param);
     }
 
+    public int updateNmrecgClsfDelYnById(CommonSearchImgDataDto param) {
+        return nmrecgClsfMapper.updateNmrecgClsfDelYnById(param);
+    }
+    
     public void insertNmRecgClsf(NmrecgClsfDto param) {
         nmrecgClsfMapper.insertNmRecgClsf(param);
     }
+    
+    public int updateNmrecgClsfProsYnById(CommonSearchImgDataDto param) {
+        return nmrecgClsfMapper.updateNmrecgClsfProsYnById(param);
+    }    
 }

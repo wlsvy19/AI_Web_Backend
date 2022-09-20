@@ -113,10 +113,10 @@
 <!--           AND work_no = #{workNo} -->
 <!--     </update> -->
     <update id="updateCrgwImgDataDelYnById">
-        update t_ails_nmrecg_clsf set
-            del_yn = #{delYn}
+        update t_ails_crgw_img_data set
+        del_yn = #{delYn}
         WHERE work_date = #{workDate}
-          AND work_no = #{workNo}
+        AND work_no = #{workNo}
     </update>
     
    <select id="selectCrgwImgDataListCount" resultType="java.util.HashMap">
@@ -129,4 +129,11 @@
         GROUP BY WORK_DATE
         order by WORK_DATE
     </select>
+    
+    <update id="updateCrgwImgDataProsYnById">
+        update t_ails_crgw_img_data set
+        pros_yn = #{prosYn}
+        WHERE work_date = #{workDate}
+        AND work_no = #{workNo}
+    </update>
 </mapper>

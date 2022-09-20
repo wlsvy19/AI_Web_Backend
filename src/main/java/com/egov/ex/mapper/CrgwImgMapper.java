@@ -1,11 +1,14 @@
 package com.egov.ex.mapper;
-import com.egov.ex.dto.CrgwImgSearchData;
-import com.egov.ex.entity.CrgwImg;
-import egovframework.rte.psl.dataaccess.mapper.Mapper;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.CrgwImgSearchData;
+import com.egov.ex.entity.CrgwImg;
+
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 
 /**
@@ -25,4 +28,6 @@ public interface CrgwImgMapper  {
     CrgwImg selectCrgwImgById(CrgwImgSearchData param);
 
     List<CrgwImg> selectCrgwImgList(CrgwImgSearchData param);
+    
+    int updateCrgwImgDelYnById(CommonSearchImgDataDto param);
 }

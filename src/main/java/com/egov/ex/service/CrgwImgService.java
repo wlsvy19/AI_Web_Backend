@@ -1,14 +1,17 @@
 package com.egov.ex.service;
 
-import com.egov.ex.dto.CombDtstSearchDto;
-import com.egov.ex.dto.CrgwImgSearchData;
-import com.egov.ex.mapper.CrgwImgMapper;
-import com.egov.ex.entity.CrgwImg;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import javax.annotation.Resource;
-import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.CrgwImgSearchData;
+import com.egov.ex.entity.CrgwImg;
+import com.egov.ex.mapper.CrgwImgMapper;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 /**
  * <p>
@@ -34,5 +37,9 @@ public class CrgwImgService extends EgovAbstractServiceImpl {
 
     public List<CrgwImg> selectCrgwImgList(CrgwImgSearchData param) {
         return crgwImgMapper.selectCrgwImgList(param);
+    }
+    
+    public int updateCrgwImgDelYnById(CommonSearchImgDataDto param) {
+    	return crgwImgMapper.updateCrgwImgDelYnById(param);
     }
 }

@@ -1,16 +1,19 @@
 package com.egov.ex.service;
 
+import java.util.HashMap;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgDataSaveData;
 import com.egov.ex.dto.CrgwImgDataSearchData;
 import com.egov.ex.entity.CrgwImgData;
 import com.egov.ex.mapper.CrgwImgDataMapper;
+
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * <p>
@@ -33,8 +36,8 @@ public class CrgwImgDataService extends EgovAbstractServiceImpl {
         crgwImgDataMapper.updateCrgwImgDataById(param);
     }
 
-    public void updateCrgwImgDataDelYnById(CrgwImgDataSaveData param) {
-        crgwImgDataMapper.updateCrgwImgDataDelYnById(param);
+    public int updateCrgwImgDataDelYnById(CommonSearchImgDataDto param) {
+        return crgwImgDataMapper.updateCrgwImgDataDelYnById(param);
     }
 
     public List<CrgwImgData> selectCrgwImgDataListPage(CrgwImgDataSearchData param) {
@@ -44,4 +47,9 @@ public class CrgwImgDataService extends EgovAbstractServiceImpl {
 	public List<HashMap> selectCrgwImgDataListCount(CrgwImgDataSearchData param) {
         return crgwImgDataMapper.selectCrgwImgDataListCount(param);
 	}
+	
+    public int updateCrgwImgDataProsYnById(CommonSearchImgDataDto param) {
+        return crgwImgDataMapper.updateCrgwImgDataProsYnById(param);
+    }
+
 }

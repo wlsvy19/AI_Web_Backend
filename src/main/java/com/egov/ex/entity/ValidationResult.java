@@ -47,6 +47,9 @@ public class ValidationResult  {
     @ApiModelProperty(value = "(웹) 확인 여부")
     private String prosYn;
     
+    @ApiModelProperty(value = "(웹) 삭제 여부")
+    private String delYn;
+    
     @ApiModelProperty(value = "(Join) 정답정보")
     private String answer;
 
@@ -84,6 +87,10 @@ public class ValidationResult  {
 
 	public String getProsYn() {
 		return prosYn;
+	}
+	
+	public String getDelYn() {
+		return delYn;
 	}
 
 	public String getAnswer() {

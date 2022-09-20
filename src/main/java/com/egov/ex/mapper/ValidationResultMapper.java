@@ -1,4 +1,5 @@
 package com.egov.ex.mapper;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -22,8 +23,10 @@ public interface ValidationResultMapper {
 
 	List<ValidationResult> selectValidationResultById(ValidationResultDto param);   
 	
-	int selectValidationResultCountById(ValidationResultDto param);
+	HashMap selectValidationResultCountById(ValidationResultDto param);
 	
 	int updateValidationResultByPk(ValidationResultDto param);
+	
+	int updateValidationResultDelYnByPk(ValidationResultDto param);
+	
 }
-;

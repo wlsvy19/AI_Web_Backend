@@ -1,12 +1,15 @@
 package com.egov.ex.mapper;
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgDataSaveData;
 import com.egov.ex.dto.CrgwImgDataSearchData;
 import com.egov.ex.entity.CrgwImgData;
-import egovframework.rte.psl.dataaccess.mapper.Mapper;
-import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 /**
  * <p>
@@ -24,9 +27,11 @@ public interface CrgwImgDataMapper  {
 
     void updateCrgwImgDataById(CrgwImgDataSaveData param);
 
-    void updateCrgwImgDataDelYnById(CrgwImgDataSaveData param);
+    int updateCrgwImgDataDelYnById(CommonSearchImgDataDto param);
 
     List<CrgwImgData> selectCrgwImgDataListPage(CrgwImgDataSearchData param);
 
 	List<HashMap> selectCrgwImgDataListCount(CrgwImgDataSearchData param);
+	
+	int updateCrgwImgDataProsYnById(CommonSearchImgDataDto param);
 }

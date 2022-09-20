@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
 import com.egov.ex.entity.IncnImg;
 import com.egov.ex.mapper.IncnImgMapper;
@@ -27,5 +28,13 @@ public class IncnImgService extends EgovAbstractServiceImpl {
     public IncnImg selectIncnImgById(CrgwImgSearchData param) {
         return incnImgMapper.selectIncnImgById(param);
     }
+
+
+	public int updateIncnImgDelYnByPk(CommonSearchImgDataDto param) {
+		return incnImgMapper.updateIncnImgDelYnByPk(param);
+	}
     
+	public int updateIncnImgProsYnByPk(CommonSearchImgDataDto param) {
+		return incnImgMapper.updateIncnImgProsYnByPk(param);
+	}
 }
