@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:log4jdbc:mysql://192.168.100.231:3306/ailsdb?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8
+    url: jdbc:log4jdbc:mysql://110.8.84.56:33307/ailsdb?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     username: ails
-    password: "straffic1345"
+    password: "!new1234"
 
 file:
   basedir: /home/ails/project/upload
