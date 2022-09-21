@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.egov.ex.dto.AjaxResp;
 import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.SearchLabelRsltDto;
 import com.egov.ex.entity.LabelRslt;
 import com.egov.ex.service.LabelRsltService;
 
@@ -35,7 +36,7 @@ public class LabelRsltController {
     }
 
     @PostMapping("/api/label-rslt/data")
-    public AjaxResp rsltData(@RequestBody LabelRslt param) throws Exception {
+    public AjaxResp rsltData(@RequestBody SearchLabelRsltDto param) throws Exception {
         LabelRslt data = labelRsltService.selectLabelRsltById(param);
         return AjaxResp.success(data);
     }
@@ -43,7 +44,10 @@ public class LabelRsltController {
     @PostMapping("/api/label-rslt/data/save")
     public AjaxResp rsltDataSave(@RequestBody LabelRslt param) throws Exception {
         int r = labelRsltService.updateLabelRslt(param);
-        if (r == 0) labelRsltService.insertLabelRslt(param);
+        // 2022.09.20 wook
+        // label-rslt에서 가져온 데이터로 이미지를 조회함으로 무조건 있어야함
+        // 따라서 insert 사용안함.        
+        // if (r == 0) labelRsltService.insertLabelRslt(param);
         return AjaxResp.success(r);
     }
     

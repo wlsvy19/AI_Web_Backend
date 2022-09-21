@@ -43,6 +43,10 @@ public class PlateImg {
     @ApiModelProperty(value = "파일Blob")
     private byte[] imgData;
 
+    @ApiModelProperty(value = "사진 넓이")
+    private int width;
 
+    @ApiModelProperty(value = "사진 높이")
+    private int height;    
 
 }

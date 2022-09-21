@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.egov.ex.dto.AjaxResp;
 import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
+import com.egov.ex.entity.IncnImg;
 import com.egov.ex.entity.PlateImg;
 import com.egov.ex.service.PlateImgService;
 
@@ -44,6 +45,12 @@ public class PlateImgController {
     public @ResponseBody byte[] plateImg(CrgwImgSearchData param) throws Exception {
         PlateImg info = plateImgService.selectPlateImgById(param);
         return info.getImgData();
+    }
+    
+    @PostMapping(value="/api/plate-img/data")
+    public AjaxResp crgwImgTest(@RequestBody CrgwImgSearchData param) throws Exception {
+    	PlateImg info = plateImgService.selectPlateImgById(param);
+        return AjaxResp.success(info);
     }
     
     @ApiOperation("번호판 영상 삭제여부 업데이트")
