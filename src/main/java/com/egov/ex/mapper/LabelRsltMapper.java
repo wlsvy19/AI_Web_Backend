@@ -2,6 +2,7 @@ package com.egov.ex.mapper;
 import org.springframework.stereotype.Repository;
 
 import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.SearchLabelRsltDto;
 import com.egov.ex.entity.LabelRslt;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
@@ -22,7 +23,7 @@ public interface LabelRsltMapper  {
 
     int updateLabelRslt(LabelRslt param);
 
-    LabelRslt selectLabelRsltById(LabelRslt param);
+    LabelRslt selectLabelRsltById(SearchLabelRsltDto param);
 
     void updateLabelRsltDel(LabelRslt param);
     

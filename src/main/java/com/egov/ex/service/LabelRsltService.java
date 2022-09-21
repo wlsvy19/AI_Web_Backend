@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.egov.ex.dto.CommonSearchImgDataDto;
+import com.egov.ex.dto.SearchLabelRsltDto;
 import com.egov.ex.entity.LabelRslt;
 import com.egov.ex.mapper.LabelRsltMapper;
 
@@ -31,7 +32,7 @@ public class LabelRsltService extends EgovAbstractServiceImpl {
        return labelRsltMapper.updateLabelRslt(param);
     }
 
-    public LabelRslt selectLabelRsltById(LabelRslt param) {
+    public LabelRslt selectLabelRsltById(SearchLabelRsltDto param) {
         return labelRsltMapper.selectLabelRsltById(param);
     }
 

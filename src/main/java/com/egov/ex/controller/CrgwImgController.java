@@ -50,6 +50,12 @@ public class CrgwImgController {
 		return info.getImgData();    	
     }
 
+    @PostMapping(value="/api/crgw-img/data")
+    public AjaxResp crgwImgTest(@RequestBody CrgwImgSearchData param) throws Exception {
+    	CrgwImg info = crgwImgService.selectCrgwImgById(param);
+        return AjaxResp.success(info);
+    }
+    
     @PostMapping(value="/api/crgw-img/list")
     public AjaxResp crgwImgList(CrgwImgSearchData param) throws Exception {
         List<CrgwImg> list = crgwImgService.selectCrgwImgList(param);
@@ -61,4 +67,5 @@ public class CrgwImgController {
         int r = crgwImgService.updateCrgwImgDelYnById(param);
         return AjaxResp.success(r);
     }
+    
 }

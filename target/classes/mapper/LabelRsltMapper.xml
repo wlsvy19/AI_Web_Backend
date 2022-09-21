@@ -42,10 +42,10 @@
             AND label_type IN ('B','C','D')
         </if>
         <if test='pageType == "꺾임"'>
-            AND label_type IN ('E')
+            AND label_type = 'E'
         </if>
         <if test='pageType == "빛"'>
-            AND label_type IN ('F')
+            AND label_type = 'F'
         </if>
     </update>
     
@@ -53,21 +53,21 @@
        SELECT *
        FROM t_ails_label_rslt
        WHERE work_date = #{workDate}
-        AND work_no = #{workNo}
-        /*AND label_type = {labelType}*/
-        <if test='pageType == "번호판"'>
-            AND label_type = 'A'
-        </if>
-        <if test='pageType == "차량번호"'>
-            AND label_type IN ('B','C','D')
-        </if>
-        <if test='pageType == "꺾임"'>
-            AND label_type IN ('E')
-        </if>
-        <if test='pageType == "빛"'>
-            AND label_type IN ('F')
-        </if>
-        AND del_yn = 'N'
+       AND work_no = #{workNo}
+       <!-- AND label_type = #{labelType} -->
+       <if test='pageType == "번호판"'>
+           AND label_type = 'A'
+       </if>
+       <if test='pageType == "차량번호"'>
+           AND label_type IN ('B','C','D')
+       </if>
+       <if test='pageType == "꺾임"'>
+           AND label_type IN ('E')
+       </if>
+       <if test='pageType == "빛"'>
+           AND label_type IN ('F')
+       </if>
+       AND del_yn = 'N'
        LIMIT 1
     </select>
     

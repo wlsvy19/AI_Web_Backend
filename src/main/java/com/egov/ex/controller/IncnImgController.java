@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.egov.ex.dto.AjaxResp;
 import com.egov.ex.dto.CommonSearchImgDataDto;
 import com.egov.ex.dto.CrgwImgSearchData;
+import com.egov.ex.entity.CrgwImg;
 import com.egov.ex.entity.IncnImg;
 import com.egov.ex.service.IncnImgService;
 
@@ -43,6 +44,12 @@ public class IncnImgController {
     public @ResponseBody byte[] incnImg(CrgwImgSearchData param) throws Exception {
         IncnImg info = incnImgService.selectIncnImgById(param);
         return info.getImgData();
+    }
+    
+    @PostMapping(value="/api/incn-img/data")
+    public AjaxResp crgwImgTest(@RequestBody CrgwImgSearchData param) throws Exception {
+    	IncnImg info = incnImgService.selectIncnImgById(param);
+        return AjaxResp.success(info);
     }
     
     @ApiOperation("꺾인번호판 영상 삭제여부 업데이트")
