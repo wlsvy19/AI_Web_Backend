@@ -39,8 +39,8 @@ public class LabelRsltService extends EgovAbstractServiceImpl {
 		labelRsltMapper.updateLabelRsltDel(param);
 	}
 	
-	public void deleteLabelRsltById(CommonSearchImgDataDto param) {
-		labelRsltMapper.deleteLabelRsltById(param);
+	public int deleteLabelRsltById(CommonSearchImgDataDto param) {
+		return labelRsltMapper.deleteLabelRsltById(param);
 	}
 	
 }
