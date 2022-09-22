@@ -68,7 +68,12 @@
 <!--     </select> -->
     <select id="selectCrgwImgDataListPage" resultType="com.egov.ex.entity.CrgwImgData">
         SELECT A.*
-             , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data
+             , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
+             <if test='pageType == "번호판" or pageType == "빛"'>
+             , (SELECT shoot_dttm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) shootDttm
+             , (SELECT tolof_nm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) tolofNm
+             , (SELECT nmrecg_cd FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) nmrecgCd
+             </if>
         FROM t_ails_label_rslt A
         WHERE 1 = 1
         <if test='pageType == "번호판"'>
@@ -83,9 +88,9 @@
         <if test='pageType == "빛"'>
             AND A.label_type IN ('F')
         </if>
-        	AND IFNULL(A.pros_yn, 'N') = 'N'
+        	<!-- AND IFNULL(A.pros_yn, 'N') = 'N'
         	AND IFNULL(A.del_yn, 'N') = 'N'
-        	AND IFNULL(A.dtrm_yn, 'N') = 'N'
+        	AND IFNULL(A.dtrm_yn, 'N') = 'N' -->
         ORDER BY A.work_date, A.work_no
     </select>
     
