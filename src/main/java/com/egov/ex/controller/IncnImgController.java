@@ -43,7 +43,15 @@ public class IncnImgController {
     @GetMapping(value="/api/incn-img/data", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] incnImg(CrgwImgSearchData param) throws Exception {
         IncnImg info = incnImgService.selectIncnImgById(param);
-        return info.getImgData();
+        byte[] data;
+        try {
+        	data = info.getImgData();
+        }
+        catch(Exception e) {
+        	data = new byte[0];
+        }
+               
+		return data;
     }
     
     @PostMapping(value="/api/incn-img/data")

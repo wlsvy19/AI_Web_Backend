@@ -44,7 +44,15 @@ public class PlateImgController {
     @GetMapping(value="/api/plate-img/data", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] plateImg(CrgwImgSearchData param) throws Exception {
         PlateImg info = plateImgService.selectPlateImgById(param);
-        return info.getImgData();
+        byte[] data;
+        try {
+        	data = info.getImgData();
+        }
+        catch(Exception e) {
+        	data = new byte[0];
+        }
+               
+		return data;
     }
     
     @PostMapping(value="/api/plate-img/data")

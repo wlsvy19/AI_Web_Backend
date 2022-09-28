@@ -22,7 +22,9 @@
     <select id="selectCrgwImgDataList" resultType="com.egov.ex.entity.CrgwImgData">
 		SELECT
 			A.*
-			, (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) img_data
+			, (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
+			, (SELECT shoot_dttm FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) shootDttm
+			, (SELECT tolof_nm FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) tolofNm
 		FROM
 			t_ails_nmrecg_clsf A
 		JOIN t_ails_crgw_img_data B ON
@@ -30,8 +32,11 @@
 			AND A.work_no = B.work_no
 		WHERE
 			1 = 1
-        <if test='searchDate != ""'>
+        <if test='searchDate != null and searchDate != ""'>
             AND A.work_date = #{searchDate}
+        </if>
+        <if test="nmrecgCd != null and nmrecgCd != ''">
+        	AND A.nmrecg_cd = #{nmrecgCd}
         </if>
 			AND IFNULL(A.pros_yn, 'N') = 'N'
 			AND IFNULL(A.del_yn, 'N') = 'N'
@@ -67,27 +72,44 @@
 <!--         ORDER BY A.work_date, A.work_no -->
 <!--     </select> -->
     <select id="selectCrgwImgDataListPage" resultType="com.egov.ex.entity.CrgwImgData">
-        SELECT A.*
-             , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
-             <if test='pageType == "번호판" or pageType == "빛"'>
-             , (SELECT shoot_dttm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) shootDttm
-             , (SELECT tolof_nm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) tolofNm
-             , (SELECT nmrecg_cd FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) nmrecgCd
-             </if>
+        SELECT A.*        
+        <if test='pageType == "번호판" or pageType == "빛"'>
+        , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
+        , (SELECT shoot_dttm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) shootDttm
+        , (SELECT tolof_nm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) tolofNm
+        , (SELECT nmrecg_cd FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) nmrecgCd
+        </if>
         FROM t_ails_label_rslt A
-        WHERE 1 = 1
+        <if test='pageType == "번호판" or pageType == "빛"'>
+        JOIN t_ails_nmrecg_clsf B ON A.work_date = B.work_date AND A.work_no = B.work_no
+        </if>     
+        WHERE 1 = 1       
         <if test='pageType == "번호판"'>
             AND A.label_type = 'A'
         </if>
+        
         <if test='pageType == "차량번호"'>
             AND A.label_type IN ('B','C','D')
+            <if test="searchNum != null and searchNum != ''">
+        	AND A.label_data_text like '%${searchNum}%'
+	        </if>
+	        <if test="searchChar != null and searchChar != ''">
+        	AND A.label_data_text like '%${searchChar}%'
+	        </if>
         </if>
+        
         <if test='pageType == "꺾임"'>
             AND A.label_type IN ('E')
         </if>
         <if test='pageType == "빛"'>
             AND A.label_type IN ('F')
-        </if>
+        </if>        
+        <if test="searchLabel != null and searchLabel != ''">
+        	AND A.label_data_text like '%${searchLabel}%'
+        </if>       
+        <if test="searchDate != null and searchDate != ''">
+        	AND A.work_date = #{searchDate}
+        </if>    
         	<!-- AND IFNULL(A.pros_yn, 'N') = 'N'
         	AND IFNULL(A.del_yn, 'N') = 'N'
         	AND IFNULL(A.dtrm_yn, 'N') = 'N' -->
