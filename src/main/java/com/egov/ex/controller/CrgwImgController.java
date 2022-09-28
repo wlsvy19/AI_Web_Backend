@@ -47,7 +47,15 @@ public class CrgwImgController {
         //return Base64.getDecoder().decode(blobstr.getBytes());
         //return Base64.getDecoder().decode(info.getImgData());
 		CrgwImg info = crgwImgService.selectCrgwImgById(param);        
-		return info.getImgData();    	
+		byte[] data;
+        try {
+        	data = info.getImgData();
+        }
+        catch(Exception e) {
+        	data = new byte[0];
+        }
+               
+		return data;    	
     }
 
     @PostMapping(value="/api/crgw-img/data")

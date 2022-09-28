@@ -38,6 +38,14 @@ public class NmrecgSampleInfoController {
     byte[] nmrecgSampleInfoData(NmrecGSampleSearchDto param) throws Exception {
         NmrecgSampleInfo info = nmrecgSampleInfoService.selectNmrecgSampleInfoDataByCmmnCd(param);
 //        return Base64.getDecoder().decode(info.getImgData().getBytes());
-        return info.getImgData();
+        byte[] data;
+        try {
+        	data = info.getImgData();
+        }
+        catch(Exception e) {
+        	data = new byte[0];
+        }
+               
+		return data;
     }
 }

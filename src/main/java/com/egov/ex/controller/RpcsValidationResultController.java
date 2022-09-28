@@ -69,6 +69,14 @@ public class RpcsValidationResultController {
     @GetMapping(value="/api/rpcs-img/data", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] rpcsImg(RpcsValidationResultDto param) throws Exception {
     	RpcsValidationResult info = rpcsValidationResultService.selectRpcsImgByPk(param);
-        return info.getImgData();
+    	byte[] data;
+        try {
+        	data = info.getImgData();
+        }
+        catch(Exception e) {
+        	data = new byte[0];
+        }
+               
+		return data;
     }
 }
