@@ -62,10 +62,10 @@
            AND label_type IN ('B','C','D')
        </if>
        <if test='pageType == "꺾임"'>
-           AND label_type IN ('E')
+           AND label_type = 'E'
        </if>
        <if test='pageType == "빛"'>
-           AND label_type IN ('F')
+           AND label_type = 'F'
        </if>
        AND del_yn = 'N'
        LIMIT 1

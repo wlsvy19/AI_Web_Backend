@@ -66,10 +66,19 @@ public class CrgwImgData {
     private String prosDttm;
 
     @ApiModelProperty(value = "이미지 data")
-    private String imageData;
+    private byte[] imageData;
 
     @ApiModelProperty(value = "삭제여부")
     private String delYn;
+    
+    @ApiModelProperty(value = "이미지 넓이")
+    private int width;
+    
+    @ApiModelProperty(value = "이미지 높이")
+    private int height;
+    
+    @ApiModelProperty(value = "라벨 타입")
+    private String labelType;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -131,7 +140,7 @@ public class CrgwImgData {
 		return prosDttm;
 	}
 
-	public String getImageData() {
+	public byte[] getImageData() {
 		return imageData;
 	}
 
@@ -139,5 +148,16 @@ public class CrgwImgData {
 		return delYn;
 	}
 
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public String getLabelType() {
+		return labelType;
+	}
     
 }
