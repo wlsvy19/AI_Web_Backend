@@ -9,7 +9,7 @@
       FROM t_ails_cmmn_cd_info A
            LEFT OUTER JOIN (SELECT label_type, count(*) AS confirmDataCnt
                             FROM t_ails_label_rslt
-                            WHERE dtrm_yn='Y'
+                            WHERE dtrm_yn='y'
                             AND del_yn='N'
                             GROUP BY label_type) B
               ON A.cmmn_cd = B.label_type
