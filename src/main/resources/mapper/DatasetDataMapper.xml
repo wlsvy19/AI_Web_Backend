@@ -3,20 +3,22 @@
 <mapper namespace="com.egov.ex.mapper.DatasetDataMapper">
 
     <select id="getLabelDataCnt" resultType="java.util.HashMap">
-		SELECT A.cmmn_cd_nm AS name,
-		       IFNULL(B.confirmDataCnt, 0) AS confirmDataCnt,
-		       C.stdDatasetCnt
-		FROM t_ails_cmmn_cd_info A
-		     LEFT OUTER JOIN (SELECT label_type, count(*) AS confirmDataCnt
-		                      FROM t_ails_label_rslt
-		                      GROUP BY label_type) B
-		        ON A.cmmn_cd = B.label_type
-		     LEFT OUTER JOIN (SELECT cmmn_cd, cmmn_cd_nm AS stdDatasetCnt
-		                      FROM t_ails_cmmn_cd_info
-		                      WHERE grp_cd = 'UNIT_DTST') C
-		        ON A.cmmn_cd = C.cmmn_cd
-		WHERE grp_cd = 'NGTP'
-		ORDER BY A.cmmn_cd
+      SELECT A.cmmn_cd_nm AS name,
+             IFNULL(B.confirmDataCnt, 0) AS confirmDataCnt,
+             C.stdDatasetCnt
+      FROM t_ails_cmmn_cd_info A
+           LEFT OUTER JOIN (SELECT label_type, count(*) AS confirmDataCnt
+                            FROM t_ails_label_rslt
+                            WHERE dtrm_yn='y'
+                            AND del_yn='N'
+                            GROUP BY label_type) B
+              ON A.cmmn_cd = B.label_type
+           LEFT OUTER JOIN (SELECT cmmn_cd, cmmn_cd_nm AS stdDatasetCnt
+                            FROM t_ails_cmmn_cd_info
+                            WHERE grp_cd = 'UNIT_DTST') C
+              ON A.cmmn_cd = C.cmmn_cd
+      WHERE grp_cd = 'NGTP'
+      ORDER BY A.cmmn_cd
     </select>
     
     <select id="getDatasetDataCnt" resultType="java.util.HashMap">
