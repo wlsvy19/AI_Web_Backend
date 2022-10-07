@@ -75,11 +75,27 @@
         SELECT A.*        
         <if test='pageType == "번호판" or pageType == "빛"'>
         , (SELECT img_data FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
+        , (SELECT width FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) width
+        , (SELECT height FROM t_ails_crgw_img WHERE work_date = A.work_date AND work_no = A.work_no) height
         , (SELECT shoot_dttm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) shootDttm
         , (SELECT tolof_nm FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) tolofNm
         , (SELECT nmrecg_cd FROM t_ails_crgw_img_data WHERE work_date = A.work_date AND work_no = A.work_no) nmrecgCd
         </if>
+        <if test='pageType == "차량번호"'>
+        , (SELECT img_data FROM t_ails_plate_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
+        , (SELECT width FROM t_ails_plate_img WHERE work_date = A.work_date AND work_no = A.work_no) width
+        , (SELECT height FROM t_ails_plate_img WHERE work_date = A.work_date AND work_no = A.work_no) height
+        , (SELECT label_type FROM t_ails_plate_img WHERE work_date = A.work_date AND work_no = A.work_no) labelType
+        </if>
+        <if test='pageType == "꺾임"'>
+        , (SELECT img_data FROM t_ails_incn_img WHERE work_date = A.work_date AND work_no = A.work_no) imageData
+        , (SELECT width FROM t_ails_incn_img WHERE work_date = A.work_date AND work_no = A.work_no) width
+        , (SELECT height FROM t_ails_incn_img WHERE work_date = A.work_date AND work_no = A.work_no) height
+        , (SELECT label_type FROM t_ails_incn_img WHERE work_date = A.work_date AND work_no = A.work_no) labelType
+        </if>
+        
         FROM t_ails_label_rslt A
+        
         <if test='pageType == "번호판" or pageType == "빛"'>
         JOIN t_ails_nmrecg_clsf B ON A.work_date = B.work_date AND A.work_no = B.work_no
         </if>     
@@ -99,10 +115,10 @@
         </if>
         
         <if test='pageType == "꺾임"'>
-            AND A.label_type IN ('E')
+            AND A.label_type = 'E'
         </if>
         <if test='pageType == "빛"'>
-            AND A.label_type IN ('F')
+            AND A.label_type = 'F'
         </if>        
         <if test="searchLabel != null and searchLabel != ''">
         	AND A.label_data_text like '%${searchLabel}%'
@@ -110,9 +126,9 @@
         <if test="searchDate != null and searchDate != ''">
         	AND A.work_date = #{searchDate}
         </if>    
-        	<!-- AND IFNULL(A.pros_yn, 'N') = 'N'
+        	AND IFNULL(A.pros_yn, 'N') = 'N'
         	AND IFNULL(A.del_yn, 'N') = 'N'
-        	AND IFNULL(A.dtrm_yn, 'N') = 'N' -->
+        	AND IFNULL(A.dtrm_yn, 'N') = 'N'
         ORDER BY A.work_date, A.work_no
     </select>
     
